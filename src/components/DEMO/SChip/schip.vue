@@ -14,8 +14,8 @@
               <!-- CHIP SIZE -->
               <div class="col-md-12 col-sm-12">
                 <div class="demo-title">
-                  <h2><span>#</span>Size</h2>
-                  <h3>The types of chips available</h3>
+                  <h2><span>#</span>Sizing</h2>
+                  <h3>Sizing available</h3>
                 </div>
                 <div class="demo-content">
                   <div class="demo-item">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="demo-content">
                   <div class="demo-item">
-                    <s-chip>Default</s-chip>
+                    <s-chip>Primary</s-chip>
                   </div>
                   <div class="demo-item">
                     <s-chip type="danger">Danger</s-chip>

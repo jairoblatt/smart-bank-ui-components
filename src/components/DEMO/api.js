@@ -204,7 +204,7 @@ export const stransition = [
         name: 'transition',
         type: 'string',
         default: 'bounce',
-        description: 'Sets style of the transition - Styles available \"bounce", "fade", "slide", "expand"\" '
+        description: 'Sets style of the transition'
     },
 
 ]

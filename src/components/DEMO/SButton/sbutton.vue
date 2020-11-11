@@ -69,7 +69,6 @@
             <div class="col-md-12 col-sm-12">
               <div class="demo-title">
                 <h2><span>#</span>Icon</h2>
-                <h3>Icons can be used for the primary content of a button.</h3>
               </div>
               <div class="demo-content">
                 <div class="demo-item">
@@ -155,7 +154,7 @@
                     large
                     @click="text.default = !text.default"
                     :loading="text.default"
-                    >OUTLINED</s-button
+                    >LOGIN</s-button
                   >
                 </div>
                 <div class="demo-item">

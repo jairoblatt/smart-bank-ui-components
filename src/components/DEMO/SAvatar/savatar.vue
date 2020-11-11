@@ -14,8 +14,7 @@
               <div class="demo-title">
                 <h2><span>#</span>Types</h2>
                 <h3>
-                  Buttons can be given different sizing options to fit a
-                  multitude of scenarios.
+                  Avatars types available
                 </h3>
               </div>
               <div class="demo-content">
@@ -39,10 +38,6 @@
             <div class="col-md-12 col-sm-12">
               <div class="demo-title">
                 <h2><span>#</span>Sizing</h2>
-                <h3>
-                  Buttons can be given different sizing options to fit a
-                  multitude of scenarios.
-                </h3>
               </div>
               <div class="demo-content">
                 <div class="demo-item">
@@ -64,11 +59,7 @@
           <div class="row demo-container">
             <div class="col-md-12 col-sm-12">
               <div class="demo-title">
-                <h2><span>#</span>Avatar</h2>
-                <h3>
-                  Buttons can be given different sizing options to fit a
-                  multitude of scenarios.
-                </h3>
+                <h2><span>#</span>Colors</h2>
               </div>
               <div class="demo-content">
                 <div class="demo-item">

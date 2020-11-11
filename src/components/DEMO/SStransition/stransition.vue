@@ -13,7 +13,8 @@
               <!-- TRANSITION BOUNCE EXAMPLE -->
               <div class="col-md-12 col-sm-12">
                 <div class="demo-title">
-                  <h2><span>#</span>Bounce animation</h2>
+                  <h2><span>#</span>Animations type</h2>
+                  <h3>Styles available "bounce", "fade", "slide", "expand"</h3>
                 </div>
                 <div class="demo-content">
                   <div class="demo-item">

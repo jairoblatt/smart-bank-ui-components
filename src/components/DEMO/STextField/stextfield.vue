@@ -14,7 +14,6 @@
               <div class="col-md-12 col-sm-12">
                 <div class="demo-title">
                   <h2><span>#</span>Examples</h2>
-                  <h3>The types of chips available</h3>
                 </div>
                 <div class="demo-content">
                   <div class="demo-item">
@@ -39,7 +38,6 @@
               <div class="col-md-12 col-sm-12">
                 <div class="demo-title">
                   <h2><span>#</span>Errors</h2>
-                  <h3>The types of chips available</h3>
                 </div>
                 <div class="demo-content">
                   <div class="demo-item">
