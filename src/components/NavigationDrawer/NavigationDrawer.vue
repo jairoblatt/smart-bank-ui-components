@@ -76,10 +76,11 @@ export default {
         'isOpen-drawer':this.activeAppBar,
       }
     },
+
     activeAppBar(){
       if(this.window.width > 952) return false;
       return true;
-    }
+    },
   },
 
   created() {

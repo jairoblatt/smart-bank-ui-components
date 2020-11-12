@@ -1,19 +1,17 @@
 <template>
   <div class="layout-container container-fluid">
 
-    <!-- NAVIGATION DRAWER START -->
+    <!-- Navigation drawer -->
     <div class="layout-navigation-drawer">
       <navigation-drawer />
     </div>
-    <!-- NAVIGATION DRAWER END -->
 
-    <!-- CONTENT PAGES START -->
+    <!-- Content -->
     <div class="layout-content-page">
       <div class="row">
         <child />
       </div>
     </div>
-    <!-- CONTENT PAGES END -->
     
   </div>
 </template>

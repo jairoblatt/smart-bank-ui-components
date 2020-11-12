@@ -52,6 +52,7 @@ export default {
       email: "sophia",
       password: "test123",
     },
+    userPreview:''
   }),
 
 

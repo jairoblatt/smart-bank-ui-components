@@ -33,21 +33,12 @@
                       >Reset</s-button
                     >
                   </div>
-                  <div class="demo-item">
-                    <s-button @click="transitionHandle('bounce')">Bounce</s-button>
+                  <div class="demo-item" v-for="(animation,index) in animationItems" :key="index">
+                    <s-button @click="transitionHandle(animation)">{{ firstUpperCase(animation) }}</s-button>
                   </div>
-                  <div class="demo-item">
-                    <s-button @click="transitionHandle('fade')">Fade</s-button>
-                  </div>
-                  <div class="demo-item">
-                    <s-button @click="transitionHandle('slide')">Slide</s-button>
-                  </div>
-                  <div class="demo-item">
-                    <s-button @click="transitionHandle('expand')">Expand</s-button>
-                  </div>
-                </div>
               </div>
             </div>
+          </div>
           </div>
         </s-card-body>
       </s-card>
@@ -80,6 +71,7 @@ export default {
       name: "",
       active: false,
     },
+    animationItems:['fade', 'bounce', 'slide', 'slide-left', 'expand']
   }),
 
   methods: {
@@ -87,6 +79,9 @@ export default {
       this.animation.name = name;
       this.animation.active = true;
     },
+    firstUpperCase(name){
+      return name.charAt(0).toUpperCase() + name.slice(1)
+    }
   },
 };
 </script>

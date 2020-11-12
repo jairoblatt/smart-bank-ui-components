@@ -52,6 +52,7 @@
   </s-card>
 </template>
 <script>
+
 export default {
   data: () => ({
     cardSelected: 0,

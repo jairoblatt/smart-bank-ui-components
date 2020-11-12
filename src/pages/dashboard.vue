@@ -1,5 +1,6 @@
 <template>
   <div class="layout-content-container">
+    
     <div class="layout-aside">
       <div class="container-fluid">
         <div class="row">

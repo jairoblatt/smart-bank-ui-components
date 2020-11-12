@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid demo-container">
     <tabs>
       <tab title="Button">
         <div class="col-12">
@@ -70,3 +70,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@media only screen and (max-width: 900px) {
+  .demo-container{
+    margin-top:90px;
+  }
+}
+</style>
