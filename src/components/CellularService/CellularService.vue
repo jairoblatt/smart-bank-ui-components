@@ -28,16 +28,20 @@
           </div>
         </div>
       </s-card-body>
+
       <!-- History -->
       <s-card-body>
-        <s-chip 
-          small
-          v-for="(last, index) in lastNumbers"
-          :key="index" 
-          :type="!last.status ? 'danger': 'success'"
-          class="ml-2"
-          @click="deleteNumber(last)"
-        > <i :class="`mdi ${!last.status ? 'mdi-close' :'mdi-check'}`"></i> {{last.number}}</s-chip>
+        <s-card-title class="d-inline-flex m-0 p-0" v-for="(last, index) in lastNumbers" :key="index">
+          <s-chip
+            small
+            :type="!last.status ? 'danger' : 'success'"
+            class="ml-2"
+            @click="deleteNumber(last)"
+          >
+            <i :class="`mdi ${!last.status ? 'mdi-close' : 'mdi-check'}`"></i>
+            {{ last.number }}</s-chip
+          >
+        </s-card-title>
       </s-card-body>
     </div>
   </s-card>
@@ -70,9 +74,9 @@ export default {
       setTimeout((_) => {
         this.loading = false;
         this.lastNumbers.push({
-          number:this.cellNumber,
-          status: Math.round(Math.random())
-        })
+          number: this.cellNumber,
+          status: Math.round(Math.random()),
+        });
         this.sendNumber();
       }, 2000);
     },
@@ -84,14 +88,14 @@ export default {
       }, 2000);
     },
 
-    deleteNumber(data){
+    deleteNumber(data) {
       this.loading = true;
       setTimeout(() => {
-       const index = this.lastNumbers.indexOf(data);
+        const index = this.lastNumbers.indexOf(data);
         this.loading = false;
-        this.lastNumbers.splice(index,1);
-      },1000)
-    }
+        this.lastNumbers.splice(index, 1);
+      }, 1000);
+    },
   },
 };
 </script>

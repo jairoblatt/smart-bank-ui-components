@@ -65,7 +65,7 @@ body,
     }
 
     @include lt-md {
-        margin-top: 60px;
+        margin-top: 80px;
         grid-template-areas:
             'aside aside'
             'section section';
@@ -115,7 +115,7 @@ body,
 .debit-card-top-container {
     display: flex;
     align-items: center;
-    @include sm{
+    @include lt-sm{
         justify-content: center;
     }
 }

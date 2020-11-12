@@ -30,6 +30,7 @@ export default {
         height: this.height,
         opacity: this.show ? 1 : 0,
         backgroundColor: this.canSuccess ? this.color : this.failedColor,
+        position: 'absolute'
       };
     },
   },
