@@ -2,6 +2,7 @@
 .debit-container {
     display: flex;
     justify-content: space-between;
+    padding: 0 20px;
     .debit-stats {
         flex: 0 0 46%;
         .stats-title {
@@ -9,6 +10,9 @@
             span {
                 color: $primary;
                 padding-left: 10px;
+            }
+            @include lt-sm{
+                margin-bottom: 10px;
             }
         }
     }
@@ -24,6 +28,9 @@
     }
     @include lt-lg{
         flex-direction: column;
+    }
+    @include lt-sm{
+        padding: 0;
     }
 }
 .debit-content-container {

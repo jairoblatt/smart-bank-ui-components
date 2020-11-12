@@ -4,13 +4,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 46px;
     .new-contact-icon {
         text-align: center;
         button {
             @include text(20px);
             border-radius: 15px;
             border: 1px solid $gray-darken-3;
-            padding: 10px 15px;
+         
             background: transparent;
 
             &:hover {

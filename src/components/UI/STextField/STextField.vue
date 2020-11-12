@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
     <label for="">{{ label }}</label>
-    <input v-model="$attrs.value" :type="type" @input="$emit('input', $event.target.value)" />
+    <input v-model="$attrs.value" @focus="$emit('focus')" :type="type" @input="$emit('input', $event.target.value)" />
     <transition mode="out-in" name="slide">
       <small v-show="isError">{{ isError }}</small>
     </transition>

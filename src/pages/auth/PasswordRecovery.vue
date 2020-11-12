@@ -1,6 +1,7 @@
 <template>
   <div class="row">
     <div class="col-sm-12 col-lg-5 login-form-container">
+      <!-- Password recovery info -->
       <div class="login-title">
         <h2>Password recovery</h2>
         <s-transition transition="slide-down">
@@ -8,17 +9,17 @@
         </s-transition>
       </div>
 
+      <!-- Form -->
       <div class="login-form-group">
         <div class="login-form-input">
-          <s-text-field label="Email" v-model="emailRecovery" />
+          <s-text-field label="Email" v-model="emailRecovery" @focus="sendEmail = false" />
         </div>
       </div>
 
+      <!-- Actions -->
       <div class="login-form-actions">
         <s-button :to="{ name: 'Login' }" color="text-blue" text>Back</s-button>
-        <s-button :loading="loading" @click="recoveryPassword"
-          >Continue</s-button
-        >
+        <s-button :loading="loading" @click="recoveryPassword">Continue</s-button>
       </div>
     </div>
   </div>
@@ -38,10 +39,9 @@ export default {
   methods: {
     recoveryPassword() {
       this.loading = true;
-      const that = this;
-      setTimeout((_) => {
-        that.sendEmail = true;
-        that.loading = false;
+      setTimeout(() => {
+        this.sendEmail = true;
+        this.loading = false;
       }, 2000);
     },
   },

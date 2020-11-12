@@ -1,5 +1,5 @@
 <template>
-  <s-card center min-height="175" min-width="160">
+  <s-card center >
     <div class="new-contact-card-container">
       <s-spinner :loading="loading" size="45">
         <div class="new-contact-icon">

@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 30px;
     .contact-card-action{
         width: 100%;
         padding-top: 10px;
@@ -32,6 +33,9 @@
         align-items: center;
         flex-direction: column;
         padding:0 30px;
+        h2{
+            padding-top: 13px;
+        }
     }
     &:hover{
         cursor: pointer;

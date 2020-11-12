@@ -48,7 +48,7 @@ export default {
     defaultLayout: "default",
   }),
 
-  async mounted() {
+  mounted() {
     this.$loading = this.$refs.loading;
   },
 

@@ -1,8 +1,8 @@
 <template>
-  <s-card min-height="90" :loading="spinner">
+  <s-card min-height="90">
     <div class="new-product">
       <div class="new-product-icon">
-        <s-button color="#212121" icon @click="addNewCard()">
+        <s-button color="#212121" :loading="spinner" icon @click="addNewCard()">
           <i class="mdi mdi-plus"></i>
         </s-button>
       </div>

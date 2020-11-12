@@ -4,7 +4,6 @@
       <div class="col-lg-5 login-header-container">
         <ul>
           <li
-            class="login-header-item"
             v-for="(item, index) in headItems"
             :key="index"
           >

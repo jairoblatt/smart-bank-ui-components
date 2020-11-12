@@ -1,39 +1,35 @@
 <template>
     <div class="row">
       <div class="col-sm-12 col-lg-5 login-form-container">
-        <!-- FORM TLOGIN TITLE -->
+        <!-- Title -->
         <div class="login-title">
-          <h2>Hello, <span>Sophia!</span></h2>
+          <h2>Hello, <span>{{form.email}}</span></h2>
         </div>
-        <!-- FORM TLOGIN TITLE -->
 
-        <!-- FORM TEXT FIELDS START -->
+        <!-- Form -->
         <div class="login-form-group">
           <div class="login-form-input">
-            <s-text-field label="Email" v-model="form.email" />
+            <s-text-field 
+              label="Username"
+              v-model="form.email" 
+            />
           </div>
           <div class="login-form-input">
             <s-text-field
               label="Password"
               type="password"
               v-model="form.password"
-              :errors="error"
             />
           </div>
         </div>
-        <!-- FORM TEXT FIELDS END -->
 
-        <!-- FORM ACTIONS START -->
+        <!-- Actions -->
         <div class="login-form-actions">
-          <s-button @click="clearData()" text>Im not Sophia</s-button>
-          <s-button :to="{ name: 'PasswordRecovery' }" text
-            >Forgot password?</s-button
-          >
-          <s-button :loading="loading" @click="goToDashboard">Login</s-button>
+          <s-button :to="{ name: 'PasswordRecovery' }" text>Forgot password?</s-button>
+          <s-button :loading="loading" @click="login">Login</s-button>
         </div>
-        <!-- FORM ACTIONS END -->
 
-        <!-- FORM FOOTER START -->
+        <!-- Footer -->
         <div class="login-footer">
           <p>
             Do Not disclose your login, password and verification code to
@@ -41,7 +37,6 @@
             them.
           </p>
         </div>
-        <!-- FORM FOOTER START -->
       </div>
     </div>
 </template>
@@ -54,23 +49,16 @@ export default {
   data: () => ({
     loading: false,
     form: {
-      email: "admin",
+      email: "sophia",
       password: "test123",
     },
-    error: [],
   }),
 
 
   methods: {
-
-    clearData() {
-      Object.assign(this.$data, this.$options.data());
-    },
-
-    goToDashboard() {
+    login() {
       this.loading = true;
-      const { $router } = this;
-      setTimeout( _ =>  $router.push({ name:'Payments' }), 1000);
+      setTimeout( _ =>  this.$router.push({ name:'Payments' }), 1000);
     },
   },
 };

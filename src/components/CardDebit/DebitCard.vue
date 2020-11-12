@@ -14,12 +14,10 @@
               <h2>Balance</h2>
               <h4>$ {{ balance }}</h4>
             </div>
-
             <div class="debit-content">
               <h2>Cashback <s-chip type="success">?</s-chip></h2>
               <h4>$ {{ cashBack }}</h4>
             </div>
-
             <div class="debit-content">
               <h2>Rate</h2>
               <h4>
@@ -35,12 +33,14 @@
         </div>
 
         <div class="debit-action">
-          <div class="action-item">
-            <s-button @click="loading = !loading" :loading="loading"
+          <div class="ml-1">
+            <s-button 
+              @click="loading=!loading"
+              :loading="loading"
               >Pay</s-button
             >
           </div>
-          <div class="action-item">
+          <div class="ml-1">
             <s-button outlined>More</s-button>
           </div>
         </div>

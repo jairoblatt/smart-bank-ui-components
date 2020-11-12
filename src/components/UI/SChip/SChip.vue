@@ -1,5 +1,5 @@
 <template>
-  <span :class="[classes, chipType]">
+  <span :class="[classes, chipType]" @click="$emit('click')">
     <i v-if="icon" :class="icon"></i>
     <slot />
   </span>

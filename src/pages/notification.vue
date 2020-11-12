@@ -1,11 +1,14 @@
 <template>
   <div class="layout-content-container">
+    <!-- Left side -->
     <div class="layout-aside">
       <div class="container-fluid">
         <div class="row">
+          <!-- User infos card -->
           <div class="col-12">
             <user-card :cards="userCards" />
           </div>
+          <!-- Generate new card product -->
           <div class="col-12">
             <card-new-product @NewProduct="storageNewUserCard" />
           </div>
@@ -13,43 +16,43 @@
       </div>
     </div>
 
+    <!-- Rigth side -->
     <div class="layout-section">
       <div class="container-fluid">
         <div class="row">
-          <!-- DEBIT CARD TEXTS FILEDS START -->
+          
+          <!-- Debit card -->
           <div class="col-12">
             <div class="row debit-card-top-container">
-              <div class="col-sm-12 col-md-4">
-                <s-text-field label="Debit card first"></s-text-field>
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                <s-text-field label="Debit card first"/>
               </div>
               <i class="mdi mdi-arrow-right"></i>
-              <div class="col-sm-12 col-md-4">
-                <s-text-field label="Payee name"></s-text-field>
+              <div class="col-sm-12 col-md-12 col-lg-5">
+                <s-text-field label="Payee name"/>
               </div>
             </div>
           </div>
-          <!-- DEBIT CARD TEXTS FILEDS END -->
 
-          <!-- CONTACTS FAVORITES START-->
+          <!-- Favorites contacts -->
           <div class="col-12">
             <div class="section-title">
               <h2>Contact favorites</h2>
             </div>
-            <div class="card-contact-group">
-                <card-contact
+            <s-card-group class="d-flex justify-content-sm-center justify-content-md-start">
+              <card-contact
                 v-for="(item, index) in favorites"
                 :key="index"
                 :contact="item"
                 @delete-favorite="deleteFavoriteUser"/>
-              <card-new-contact @newContact="generateFavoriteUser" />
-            </div>
+             <card-new-contact @newContact="generateFavoriteUser" />
+            </s-card-group>
           </div>
-          <!-- CONTACTS FAVORITES END -->
 
-          <div class="col-lg-7 col-sm-12">
+          <div class="col-lg-6 col-sm-12 col-md-12">
             <state-service />
           </div>
-          <div class="col-lg-5 col-sm-12">
+          <div class="col-lg-6 col-sm-12 col-md-12">
             <cellular-service />
           </div>
           <div class="col-12">
@@ -61,6 +64,7 @@
   </div>
 </template>
 <script>
+// components
 import CardContact from "../components/CardContact";
 import CellularService from "../components/CellularService";
 import StateService from "../components/StateService";
@@ -68,11 +72,13 @@ import UserCard from "@/components/UserCard";
 import CardNewProduct from "@/components/CardNewProduct";
 import CardNewContact from "@/components/CardNewContact";
 import CardTransfer from "@/components/CardTransfer";
-// just test
+
+// Mixin for demo
 import demo from "@/mixins/storageNewUser";
 export default {
   // just test
   mixins: [demo],
+  
   components: {
     UserCard,
     CardNewProduct,
@@ -82,10 +88,12 @@ export default {
     CardNewContact,
     CardTransfer,
   },
+
   created() {
     for (let index = 0; index < 3; index++) {
       this.generateFavoriteUser();
     }
   },
+
 };
 </script>

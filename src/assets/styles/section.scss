@@ -62,7 +62,7 @@ body,
     }
 
     @include lt-md {
-        // grid-template-rows: 1fr 1fr;
+        margin-top: 5px;
         grid-template-areas:
             'aside aside'
             'section section';
@@ -87,6 +87,7 @@ body,
         @include text(1.1rem, 500);
         color: $gray-darken-3;
         padding-left: 10px;
+        padding-top: 10px;
     }
 }
 
@@ -111,6 +112,9 @@ body,
 .debit-card-top-container {
     display: flex;
     align-items: center;
+    @include sm{
+        justify-content: center;
+    }
 }
 
 

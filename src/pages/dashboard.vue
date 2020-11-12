@@ -16,12 +16,11 @@
     <div class="layout-section">
       <div class="container-fluid">
         <div class="row">
-          <!-- SEARCH BAR START -->
+          <!-- Search bar-->
           <div class="col-sm-11 col-md-12 col-lg-6 mb-section">
             <search-bar />
           </div>
-          <!-- SEARCH BAR END -->
-
+          <!-- Card credit status -->
           <div class="col-md-12 col-sm-12 mb-section">
             <card-debit
               :name="card.name"
