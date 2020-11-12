@@ -1,8 +1,41 @@
 @import '../../assets/styles/style.scss';
+.app-bar{
+    width: 100%;
+    background: $white;
+    height: 50px;
+    position: absolute;
+    z-index: 20;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: flex-end;
+    button{
+        border: 0;
+        background: transparent;
+        margin-right: 20px;
+        &:hover{
+            @include hover;
+        }
+        i{
+            color: $gray-darken-3;
+            font-size: 26px;
+        }
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+.isOpen-drawer{
+    box-shadow: 16px 9px 18px #cccccc69,
+    -9px -9px 18px #ffffff73;
+    z-index: 99999;
+    width: 100%;
+}
+
 .navigation-drawer-container {
     height: 100%;
     width: 80px;
-  position: fixed;
+    position: fixed;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -11,7 +44,6 @@
     padding: 40px 10px;
     z-index: 99;
     background: $white;
-
     .navigation-drawer-logo {
         @include text(2rem, 800);
         color: $gray-darken-3;
@@ -19,20 +51,16 @@
         display: flex;
         align-items: flex-start;
     }
-
     .navigation-drawer-items {
         flex: 0 0 70%;
         display: flex;
         align-items: center;
-
         ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-
             li {
                 padding: 15px;
-
                 &:hover i {
                     color: $primary;
                     cursor: pointer;
@@ -40,7 +68,6 @@
                 }
             }
         }
-
         .active i {
             color: $primary !important;
         }
@@ -57,7 +84,6 @@
             }
         }
     }
-    
     i {
         @include text(24px);
         color: $gray-darken-3;

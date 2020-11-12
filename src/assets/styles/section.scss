@@ -37,7 +37,10 @@ body,
     }
 
     @include lt-md {
-        grid-template-columns: 17% 1fr;
+        grid-template-columns:1fr;
+        grid-template-areas:
+        'NavigationDrawer NavigationDrawer'
+        'ContentPage ContentPage';
     }
 }
 
@@ -62,7 +65,7 @@ body,
     }
 
     @include lt-md {
-        margin-top: 5px;
+        margin-top: 60px;
         grid-template-areas:
             'aside aside'
             'section section';
