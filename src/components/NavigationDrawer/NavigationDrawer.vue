@@ -57,6 +57,10 @@ const items = [
     icon: "mdi mdi-tune ",
     route: "Dashboard",
   },
+   {
+    icon: "mdi mdi-code-tags ",
+    route: "Demo",
+  },
 ];
 
 

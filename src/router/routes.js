@@ -40,6 +40,11 @@ function page(path) {
       component: page('chat.vue'),
       name: 'Chat',
     },
+    {
+      path: '/dashboard/demo',
+      component: page('demo.vue'),
+      name: 'Demo',
+    },
 
   
     // {
