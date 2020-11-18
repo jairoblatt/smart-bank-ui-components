@@ -1,0 +1,44 @@
+@import '@/assets/styles/style.scss';
+
+.client{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 18px;
+   
+    &.active{
+        background: $gray-ligth-3;
+    }
+    &:hover{
+        cursor: pointer;
+        background: #e8eaf1;
+    }
+    .client-info{
+        display: flex;
+        justify-content: space-between;
+        color: $gray-darken-1;
+    }
+    .client-last-message {
+        padding: 10px 0;
+        @include text(0.87rem, 500);
+    }
+    
+    @include lt-md {
+      flex: 0 0 100%;
+      margin-top: 10px;
+      .client-info{
+        width: 50%;
+        align-items: center;
+      }
+      .s-avatar-container{
+        height: 50px !important;
+        width: 50px !important;
+    }
+    }
+    @include lt-sm{
+        .client-info{
+            min-width: 70%;
+            align-items: center;
+          }
+    }
+}

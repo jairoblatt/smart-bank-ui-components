@@ -16,16 +16,22 @@ $border-radius:5px;
 // CHIPS COLORS THEMES
 $primary:('color':#01a3ff,
     'background': #bee1f5);
+$secondary:('color':$gray-darken-1,
+    'background': $gray-ligth-3);
 $success:('color': #1eba62,
     'background': #d4fae5);
 $danger:('color': #e950ca,
     'background': #ffddf3);
+$info:('color': $purple,
+    'background':#e4dafc);
 
 // MERGE THEMES
 $chip-themes-color: (
     'primary':$primary,
+    'secondary':$secondary,
     'success': $success,
-    'danger': $danger
+    'danger': $danger,
+    'info':$info
     ) !default;
 
 @each $name,

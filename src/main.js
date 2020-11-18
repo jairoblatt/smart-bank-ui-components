@@ -3,12 +3,13 @@ import router from './router';
 import App from './App.vue';
 import VueMeta from 'vue-meta';
 
-// Globla components
+// Global components
 import './components';
-Vue.config.productionTip = false;
 
 // Icons by material desing
 import '@mdi/font/css/materialdesignicons.min.css';
+
+Vue.config.productionTip = false;
 
 // Plugins
 Vue.use(VueMeta)

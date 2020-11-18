@@ -63,4 +63,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" src="./assets/styles/section.scss"></style>
+<style lang="scss" src="./assets/styles/section.scss"/>

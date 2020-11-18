@@ -1,0 +1,16 @@
+@import '@/assets/styles/style.scss';
+
+.client-profile {
+    flex: 0 0 30%;
+    align-self: center;
+    text-align: center;
+    h2{
+        @include text(0.97rem,600);
+        margin-top: 20px;
+    }
+    h3{
+        color: $gray-ligth-1;
+        @include text(0.75rem,500);
+        margin: 0;
+    }
+}

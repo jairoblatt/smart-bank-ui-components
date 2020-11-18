@@ -34,11 +34,17 @@
               <div class="col-md-12 col-sm-12">
                 <div class="demo-title">
                   <h2><span>#</span>Types</h2>
-                  <h3>The types of chips available</h3>
+                  <h3>The types of chips available.[ primary, secondary, info, danger, success ]</h3>
                 </div>
                 <div class="demo-content">
                   <div class="demo-item">
                     <s-chip>Primary</s-chip>
+                  </div>
+                  <div class="demo-item">
+                    <s-chip type="secondary">Secondary</s-chip>
+                  </div>
+                   <div class="demo-item">
+                    <s-chip type="info">Info </s-chip>
                   </div>
                   <div class="demo-item">
                     <s-chip type="danger">Danger</s-chip>
@@ -53,7 +59,6 @@
               <div class="col-md-12 col-sm-12">
                 <div class="demo-title">
                   <h2><span>#</span>whit icons</h2>
-                  <h3>The types of chips available</h3>
                 </div>
                 <div class="demo-content">
                   <div class="demo-item">

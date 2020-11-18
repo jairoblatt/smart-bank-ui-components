@@ -4,7 +4,6 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 const router = createRouter()
-export default router
 
 // Create router
 function createRouter() {
@@ -50,7 +49,7 @@ async function beforeEach(to, from, next) {
 // Global after hook.
 async function afterEach(to, from, next) {
   await router.app.$nextTick();
-  const { $loading } = appChildren()
+  const { $loading } = appChildren();
   $loading.finish();
 }
 
@@ -62,5 +61,8 @@ function resolveComponents(components) {
 }
 
 // Return children app.vue
-const appChildren = () => router.app.$children[0];
+function appChildren(){
+  return router.app.$children[0];
+}
 
+export default router;

@@ -8,7 +8,7 @@
     width: $width;
 }
 
-@mixin hover($transition:2s){
+@mixin hover($transition:0.5s){
     cursor: pointer;
     transition-duration: $transition;
 }

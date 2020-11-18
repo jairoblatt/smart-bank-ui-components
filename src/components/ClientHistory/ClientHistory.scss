@@ -1,0 +1,56 @@
+@import '@/assets/styles/style.scss';
+
+.client-history {
+    flex: 0 0 70%;
+    display: flex;
+    flex-direction: column;
+    .issues{
+        flex: 0 0 20%;
+        text-align: center;
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            li{
+                display: inline;
+                margin: 5px;
+            }
+        }
+        h2{
+            margin-bottom: 10px;
+            @include text(0.97rem,500)
+        }
+    }
+    .history-container{
+        flex: 0 0 80%;
+        padding: 20px 10px;
+        overflow-y: scroll;
+        .history{
+            margin-top: 20px;
+            display: flex;
+            .content{
+                p{
+                    @include text(0.93rem);
+                    margin-bottom: 5px;
+                }
+                small{
+                    @include text(0.833rem);
+                    color: $gray-ligth-1;
+                }
+            }
+            .action{
+                i{
+                    &:hover{
+                        @include hover;
+                        background: $gray-ligth-3;
+                    }
+                    padding: 10px;
+                    border-radius: 11.3px;
+                    font-size: 22.22px;
+                    color: $gray-darken-1;
+                }
+            }
+        }
+       
+    }
+}

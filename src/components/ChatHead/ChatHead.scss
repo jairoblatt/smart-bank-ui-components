@@ -1,0 +1,92 @@
+@import '@/assets/styles/style.scss';
+
+// client chat
+.chat-client-info {
+    background: $white;
+    flex: 0 0 8.6%;
+    border-radius: 18px;
+    // File input
+    .file {
+        margin: 0 13px;
+        padding: 8px 13.33px;
+        border-radius: 50%;
+        &:hover{
+            @include hover;
+            background: $gray-ligth-2;
+        }
+        input{
+            display: none;
+        }
+    }
+    &.client-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &.text-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 15px;
+        i{
+            font-size: 25.55px;
+        }
+    }
+    .chat-client-name {
+        width: 80%;
+        padding: 0 10px;
+        h2{
+            @include text(0.95rem,500);
+        }
+        .chat-client-status {
+            display: flex;
+            align-items: center;
+            p{
+                @include text(0.76rem);
+                color: $gray-darken-1;
+            }
+            div{
+                margin-right: 5px;
+                width: 8px;
+                height: 8px;
+                background-color: $green;
+                border-radius: 50%;
+                &:after{
+                    content: ' ';
+                }
+            }
+           
+        }
+    }
+    .chat-client-actions{
+        flex: 0 0 13.33%;
+        hr{
+            height: 35px;
+            
+        }
+        ul{
+            display: flex;
+            justify-content: space-around;
+            li{
+                font-size: 23px;
+                color: $gray-darken-1;
+                padding: 10px;
+                border-radius: 18px;
+                &:hover{
+                    @include hover;
+                    color: $primary;
+                }
+                &:last-child{
+                    margin-left: 10px;
+                    &:hover{
+                        background: $gray-ligth-2;
+                        color: $gray-darken-1;
+                    }
+                }
+            }
+        }
+    }
+    @include lt-md{
+        padding: 12px 10px;
+    }
+}

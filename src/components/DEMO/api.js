@@ -87,7 +87,7 @@ export const schip = [
         name: 'type',
         type: 'string',
         default: 'primary',
-        description: 'Defines the style of the chip, between success, primary or danger.'
+        description: 'Defines the style of the chip'
     },
     {
         name: 'small',

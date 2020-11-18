@@ -1,0 +1,43 @@
+@import './style.scss';
+
+.chat-layout{
+    display: grid;
+    grid-template-columns: 19% 1fr 25%;
+    grid-template-rows: 1fr;
+    padding: 20px 30px;
+    margin: 0;
+    grid-column-gap: 10px;
+    grid-template-areas:
+        'clients chat history';
+    .clients-layout {
+        grid-area: clients;
+    }
+    .chat-container {
+        grid-area: chat;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .client-history-container{
+        grid-column: history;
+    }
+    @include lt-md{
+        margin-top: 75px;
+        padding: 0 20px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        'clients'
+        'chat'
+        'history';
+    }
+}
+
+
+// Client history
+.client-history-container{
+    padding: 50px 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
