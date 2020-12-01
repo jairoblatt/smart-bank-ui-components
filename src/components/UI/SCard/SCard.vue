@@ -27,8 +27,11 @@ export default {
   watch: {
     loading() {
       const { loading } = this.$refs;
-      if (this.loading) return loading.start();
-      return loading.finish();
+      if (this.loading) {
+        loading.start();
+        return;
+      }
+      loading.finish();
     },
   },
 

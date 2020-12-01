@@ -6,7 +6,8 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+  "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@hiendv/vue-tabs": "^0.3.10",

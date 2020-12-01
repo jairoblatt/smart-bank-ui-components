@@ -8,4 +8,4 @@ export default {
   name: "SCardBody",
 };
 </script>
-<style lang="scss" src="./SCardBody.scss"></style>
+<style lang="scss" src="./SCardBody.scss" />
