@@ -1,10 +1,16 @@
 <template>
-  <button :disabled="disabled" :class="classes" :style="styles" @click="$emit('click')">
+  <button
+    v-bind="$attrs"
+    :class="classes"
+    :style="styles"
+    :disabled="disabled"
+    @click="$emit('click')"
+  >
     <router-link :to="{ ...to }" tag="span">
       <s-transition>
-        <s-spinner :size="spinnerSize" :loading="loading">
-          <span :class="color">
-            <slot></slot>
+        <s-spinner :size="spinnerSize" :loading="spinnerLoading">
+          <span>
+            <slot />
           </span>
         </s-spinner>
       </s-transition>
@@ -13,14 +19,13 @@
 </template>
 
 <script>
+import "./SButton.scss";
+
 export default {
   name: "SButton",
 
   props: {
-    color: {
-      type: String,
-      default: "",
-    },
+    color: String,
     block: Boolean,
     outlined: Boolean,
     text: Boolean,
@@ -31,39 +36,44 @@ export default {
     small: Boolean,
     xLarge: Boolean,
     xSmall: Boolean,
-    disabled: Boolean
+    disabled: Boolean,
+    bg: String,
   },
 
   computed: {
     classes() {
       return {
         "s-btn": true,
-        "s-btn-size-default": true,
-        "s-btn-disabled": this.disabled,
-        "s-btn-text": this.text,
-        "s-btn-block": this.block,
-        "s-btn-outlined": this.outlined,
-        "s-btn-icon": this.icon,
-        "s-btn-size-small": this.small,
-        "s-btn-size-large": this.large,
-        "s-btn-size-xsmall": this.xSmall,
-        "s-btn-size-xlarge": this.xLarge
+        "s-btn__size--default": true,
+        "s-btn--text": this.text,
+        "s-btn--block": this.block,
+        "s-btn--outlined": this.outlined,
+        "s-btn--icon": this.icon,
+        "s-btn__size--small": this.small,
+        "s-btn__size--large": this.large,
+        "s-btn__size--xsmall": this.xSmall,
+        "s-btn__size--xlarge": this.xLarge,
       };
     },
-    styles(){
+
+    styles() {
       return {
-        color: this.color
-      }
+        color: this.color,
+        backgroundColor: this.bg,
+      };
     },
-    spinnerSize(){
-      if(this.large) return 31;
-      if(this.xLarge) return 32;
-      if(this.small) return 23;
-      if(this.xSmall) return 21;
+
+    spinnerSize() {
+      if (this.large) return 31;
+      if (this.xLarge) return 32;
+      if (this.small) return 23;
+      if (this.xSmall) return 21;
       else return 30;
-    }
+    },
+
+    spinnerLoading() {
+      return this.loading && !this.disabled;
+    },
   },
 };
 </script>
-
-<style lang="scss" src="./SButton.scss"></style>

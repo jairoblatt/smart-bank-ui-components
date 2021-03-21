@@ -1,45 +1,48 @@
-  @import '../../../assets/styles/style.scss';
+@import "../../../assets/styles/style.scss";
 
-  // btn
-  $btn-transition-duration:0.28s;
-  $btn-font-weight:700;
-  $btn-font-size:0.8rem;
-  $btn-border-radius:13.3px;
+// btn
+$btn-transition-duration: 0.28s;
+$btn-font-weight: 700;
+$btn-font-size: 0.8rem;
+$btn-border-radius: 13.3px;
 
-  .s-btn {
-      background: $primary;
-      color: $white;
-      border: none;
-      outline: 0;
-      position: relative;
-      text-decoration: none;
-      border-radius: $btn-border-radius;
-      transition-duration: 0.2s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex: 0 0 auto;
-      user-select: none;
-      vertical-align: middle;
-      white-space: nowrap;
-      text-decoration: none;
-      @include text($btn-font-size, $btn-font-weight);
-      &:focus {
-          outline: none;
-      }
-      &:hover {
-          filter: brightness(1.1);
-          @include hover($btn-transition-duration)
-      }
+.s-btn {
+  background: $primary;
+  color: $white;
+  border: none;
+  outline: 0;
+  position: relative;
+  text-decoration: none;
+  border-radius: $btn-border-radius;
+  transition-duration: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+  @include text($btn-font-size, $btn-font-weight);
+
+  &:focus {
+    outline: none;
   }
-  .s-btn-disabled{
-      color: $white;
-      background: $gray-ligth-1;
-      border-color: $gray-darken-1;
-      &:hover{
-        filter: brightness(1);
-      }
+
+  &:hover {
+    filter: brightness(1.1);
+    @include hover($btn-transition-duration);
   }
+
+  &:disabled {
+    color: $white;
+    background: $gray-ligth-1;
+    border-color: $gray-darken-1;
+    &:hover {
+      filter: brightness(1);
+    }
+  }
+}
 
 /*
 *
@@ -48,25 +51,45 @@
 *
 */
 
-  $btn-size:()!default;
-  $btn-size: map-merge(
-    (
-      'default':(45,140,12.4),
-      'small':(35,120,10),
-      'xsmall':(30,110,10),
-      'large':(50,145,13.3),
-      'xlarge':(53,145,14.3)
+$btn-size: () !default;
+$btn-size: map-merge(
+  (
+    "default": (
+      45,
+      140,
+      12.4,
     ),
-    $btn-size
-  );
-  
-  @each $name,$size in $btn-size{
-      .s-btn-size-#{$name}{
-          height: #{nth($size, 1)}px;
-          min-width:  #{nth($size, 2)}px;
-          font-size: #{nth($size, 3)}px;
-      }
+    "small": (
+      35,
+      120,
+      10,
+    ),
+    "xsmall": (
+      30,
+      110,
+      10,
+    ),
+    "large": (
+      50,
+      145,
+      13.3,
+    ),
+    "xlarge": (
+      53,
+      145,
+      14.3,
+    ),
+  ),
+  $btn-size
+);
+
+@each $name, $size in $btn-size {
+  .s-btn__size--#{$name} {
+    height: #{nth($size, 1)}px;
+    min-width: #{nth($size, 2)}px;
+    font-size: #{nth($size, 3)}px;
   }
+}
 
 /*
 *
@@ -75,46 +98,43 @@
 *
 */
 
-  .s-btn-text{
-      background: $color-none;
-      color: $gray-darken-1;
-      min-width: 0;
-      &:hover {
-          color: $gray-darken-3;
-      }
+.s-btn--text {
+  background: $color-none;
+  color: $gray-darken-1;
+  min-width: 0;
+  &:hover {
+    color: $gray-darken-3;
   }
+}
 
+.s-btn--block {
+  min-width: 100% !important;
+  max-width: auto;
+}
 
-  .s-btn-block {
-      min-width: 100% !important;
-      max-width: auto;
+.s-btn--outlined {
+  background: transparent;
+  color: $gray-darken-1 !important;
+  border: solid 1.9px $gray-darken-1;
+}
+
+.s-btn--icon {
+  min-height: 100%;
+  min-width: 60px;
+}
+
+.loadingspinner {
+  @include size($btn-font-size * 2, $btn-font-size * 2);
+  pointer-events: none;
+  border: 0.3em solid transparent;
+  border-color: $white;
+  border-top-color: #131821;
+  border-radius: 50%;
+  animation: loadingspin 0.5s linear infinite;
+}
+
+@keyframes loadingspin {
+  100% {
+    transform: rotate(360deg);
   }
-
-  .s-btn-outlined {
-      background: transparent;
-      color: $gray-darken-1!important;
-      border: solid 1.9px $gray-darken-1;
-  }
-
-  .s-btn-icon {
-      min-height: 100%;
-      min-width: 60px;
-  }
-
-  .loadingspinner {
-      @include size($btn-font-size * 2, $btn-font-size * 2);
-      pointer-events: none;
-      border: 0.3em solid transparent;
-      border-color: $white;
-      border-top-color: #131821;
-      border-radius: 50%;
-      animation: loadingspin 0.5s linear infinite;
-  }
-
-  @keyframes loadingspin {
-      100% {
-          transform: rotate(360deg);
-      }
-  }
-
-  
+}
