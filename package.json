@@ -12,7 +12,7 @@
     "lint": "yarn lint:js"
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint"
+    "*.{js,vue}": "lint:ts"
   },
   "husky": {
     "hooks": {
@@ -20,8 +20,6 @@
     }
   },
   "dependencies": {
-    "@hiendv/vue-tabs": "^0.3.10",
-    "@mdi/font": "^5.7.55",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-meta": "^2.4.0",
@@ -45,7 +43,9 @@
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.3",
     "vue-jest": "^3.0.7",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "@hiendv/vue-tabs": "^0.3.10",
+    "@mdi/font": "^5.7.55"
   },
   "browserslist": [
     "> 1%",
