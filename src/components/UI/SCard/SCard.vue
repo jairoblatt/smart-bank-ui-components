@@ -1,13 +1,13 @@
 <template>
   <div :class="classes" :style="styles">
-    <loading ref="loading" />
+    <loading v-show="loading" ref="loading" />
     <slot />
   </div>
 </template>
 <script>
-import Loading from "../../LoadingBar/index";
+import Loading from '../../LoadingBar/index';
 export default {
-  name: "SCard",
+  name: 'SCard',
 
   components: {
     Loading,
@@ -38,8 +38,8 @@ export default {
   computed: {
     classes() {
       return {
-        "s-card": true,
-        "s-card-center": this.center,
+        's-card': true,
+        's-card-center': this.center,
       };
     },
     styles() {

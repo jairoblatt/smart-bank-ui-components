@@ -1,65 +1,72 @@
 @import '@/assets/styles/style.scss';
 
 // ChatBox
-.chat-Mensagens{
-    display: flex;
-    flex-direction: column;
-    height: 60vh;
-    overflow-y: scroll;
-    position: relative;
-    @include lt-md{
-        height: 80vh;
-    }
+
+.chatbox-message__container {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  overflow-y: scroll;
+  position: relative;
+
+  @include lt-md {
+    height: 80vh;
+  }
 }
-.message-container{
+
+.chatbox-message {
+  display: flex;
+  padding: 0 30px;
+  margin: 10px;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  position: relative;
+
+  .message__date {
+    margin: 0 15px;
+    color: $gray-darken-1;
+    align-self: center;
+    @include text(0.8rem);
+  }
+
+  .message__box {
     display: flex;
-    padding: 0 30px;
-    margin: 10px;
-    justify-content: flex-end;
+    align-self: flex-end;
     flex-direction: row-reverse;
-    position: relative;
-    &.recipient-container{
-        flex-direction: row;
-        .message-box{
-            background: $primary!important;
-            color: $white!important;
-            border-radius: 25px 25px 2px 25px!important;
-        }
-        .message-box-container{
-            flex-direction: row;
-        }
-    }
-    .message-date{
-        margin-right: 15px;
-        margin-left: 15px;
-        @include text(0.8rem);
-        color: $gray-darken-1;
-        align-self: center;
+    .box__content {
+      padding: 20px 30px;
+      border-radius: 25px 25px 25px 2px;
+      background: $white;
+      color: black;
+      h2 {
+        @include text(0.988rem, 600);
+        margin-bottom: 10px;
       }
-    .message-box-container{
-        display: flex;
-        align-self: flex-end;
-        flex-direction: row-reverse;
-        .message-box{
-            padding: 20px 30px;
-            border-radius: 25px 25px 25px 2px;
-            background: $white;
-            color: black;
-            h2{
-                @include text(0.988rem, 600);
-                margin-bottom: 10px;
-            }
-        }
-        .message-avatar{
-            flex: 0 0 5%;
-            margin: 0 10px;
-            align-self: flex-end;
-            &.hidden{
-                visibility: hidden;
-            }
-        }
     }
+    .box__avatar {
+      flex: 0 0 5%;
+      margin: 0 10px;
+      align-self: flex-end;
+      &.hidden {
+        visibility: hidden;
+      }
+    }
+  }
 }
-.chat-text-box{
-    flex: 0 0 8%;
+
+.chat-text-box {
+  flex: 0 0 8%;
+}
+
+.chatbox-message--recipient {
+  flex-direction: row;
+
+  .message__box {
+    flex-direction: row;
+    .box__content {
+      background: $primary;
+      color: $white;
+      border-radius: 25px 25px 2px 25px;
+    }
+  }
 }

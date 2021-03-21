@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import "./SButton.scss";
+import './SButton.scss';
 
 export default {
-  name: "SButton",
+  name: 'SButton',
 
   props: {
     color: String,
@@ -43,16 +43,16 @@ export default {
   computed: {
     classes() {
       return {
-        "s-btn": true,
-        "s-btn__size--default": true,
-        "s-btn--text": this.text,
-        "s-btn--block": this.block,
-        "s-btn--outlined": this.outlined,
-        "s-btn--icon": this.icon,
-        "s-btn__size--small": this.small,
-        "s-btn__size--large": this.large,
-        "s-btn__size--xsmall": this.xSmall,
-        "s-btn__size--xlarge": this.xLarge,
+        's-btn': true,
+        's-btn__size--default': true,
+        's-btn--text': this.text,
+        's-btn--block': this.block,
+        's-btn--outlined': this.outlined,
+        's-btn--icon': this.icon,
+        's-btn__size--small': this.small,
+        's-btn__size--large': this.large,
+        's-btn__size--xsmall': this.xSmall,
+        's-btn__size--xlarge': this.xLarge,
       };
     },
 

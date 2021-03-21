@@ -1,4 +1,4 @@
-@import "../../../assets/styles/style.scss";
+@import '../../../assets/styles/style.scss';
 
 // btn
 $btn-transition-duration: 0.28s;
@@ -54,27 +54,27 @@ $btn-border-radius: 13.3px;
 $btn-size: () !default;
 $btn-size: map-merge(
   (
-    "default": (
+    'default': (
       45,
       140,
       12.4,
     ),
-    "small": (
+    'small': (
       35,
       120,
       10,
     ),
-    "xsmall": (
+    'xsmall': (
       30,
       110,
       10,
     ),
-    "large": (
+    'large': (
       50,
       145,
       13.3,
     ),
-    "xlarge": (
+    'xlarge': (
       53,
       145,
       14.3,
@@ -101,7 +101,7 @@ $btn-size: map-merge(
 .s-btn--text {
   background: $color-none;
   color: $gray-darken-1;
-  min-width: 0;
+  min-width: auto;
   &:hover {
     color: $gray-darken-3;
   }

@@ -8,13 +8,12 @@
     <div class="chat-container">
       <!-- Title and status -->
 
-      <chat-head :name="clientSelected.name" status="Online" />
+      <ChatHead :user-name="clientSelected.name" status="online" />
 
-      <!-- Chat Box -->
-      <div class="chat-Mensagens">
-        <chat-box
+      <div class="chatbox-message__container">
+        <ChatBox
           v-for="(message, index) in messages"
-          :key="index"
+          :key="`chat-box-message-${index}`"
           :message="message"
           :recipient="message.recipient"
           :isTyping="msg.length > 0"
@@ -58,12 +57,12 @@
   </div>
 </template>
 <script>
-import SearchBar from "@/components/SearchBar";
-import CardClients from "@/components/CardClients";
-import ChatBox from "@/components/ChatBox";
-import ChatHead from "@/components/ChatHead";
-import ClientProfile from "@/components/ClientProfile";
-import ClientHistory from "@/components/ClientHistory";
+import SearchBar from '@/components/SearchBar';
+import CardClients from '@/components/CardClients';
+import ChatBox from '@/components/ChatBox';
+import ChatHead from '@/components/ChatHead';
+import ClientProfile from '@/components/ClientProfile';
+import ClientHistory from '@/components/ClientHistory';
 export default {
   components: {
     SearchBar,
@@ -75,9 +74,9 @@ export default {
   },
 
   data: () => ({
-    msg: "",
+    msg: '',
     messages: [],
-    clientSelected: "",
+    clientSelected: '',
   }),
 
   methods: {
@@ -98,14 +97,14 @@ export default {
     sendMsg() {
       const msgClone = this.msg.repeat(1);
       // Clear form
-      this.msg = "";
+      this.msg = '';
 
       // send message
-      this.createMessage("You", "men/33.jpg", msgClone, true);
+      this.createMessage('You', 'men/33.jpg', msgClone, true);
 
       //  Clone the same message
       setTimeout(() => {
-        this.createMessage("Lorem Ipsum", "women/95.jpg", msgClone);
+        this.createMessage('Lorem Ipsum', 'women/95.jpg', msgClone);
       }, Math.random() * 3000);
     },
 
@@ -116,4 +115,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="../assets/styles/chat.scss"/>
+<style lang="scss" src="../assets/styles/chat.scss" />

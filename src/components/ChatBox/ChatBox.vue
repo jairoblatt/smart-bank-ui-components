@@ -1,52 +1,45 @@
 <template>
-  <span :class="messageContainerClasses">
-    
-    <div class="message-date">
+  <div :class="classes">
+    <div class="message__date">
       <p>{{ message.time }}</p>
     </div>
 
-    <div class="message-box-container">
-      <div class="message-box">
-        <h2>{{message.name}}</h2>
+    <div class="message__box">
+      <div class="box__content">
+        <h2>{{ message.name }}</h2>
         <span>{{ message.content }}</span>
       </div>
 
-      <div :class="avatarClasses">
-        <s-avatar rounded >
-          <img :src="message.avatarPath" alt="" />
+      <div class="box__avatar">
+        <s-avatar rounded>
+          <img :src="message.avatarPath" :alt="`${message.name} chat Avatar`" />
         </s-avatar>
       </div>
     </div>
-  </span>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    message: Object,
+    message: {
+      type: Object,
+      default: () => {},
+    },
     avatar: Boolean,
-    recipient: Boolean
+    recipient: Boolean,
   },
-  computed:{
-    messageContainerClasses(){
+
+  computed: {
+    classes() {
       return {
-        'message-container': true,
+        'chatbox-message': true,
         'bounce-enter-active': true,
-        'recipient-container': this.recipient
-      }
+        'chatbox-message--recipient': this.recipient,
+      };
     },
-
-    avatarClasses(){
-      return {
-        'message-avatar': true,
-      }
-    },
-
-    testing(){
-      return this.message.content.length
-    }
-  }
+  },
 };
 </script>
 
-<style lang="scss" src="./ChatBox.scss"/>
+<style lang="scss" src="./ChatBox.scss" />
