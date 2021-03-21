@@ -12,7 +12,7 @@
     "lint": "yarn lint:js"
   },
   "lint-staged": {
-    "*.{js,vue}": "lint:ts"
+    "*.{js,vue}": "lint:js"
   },
   "husky": {
     "hooks": {
