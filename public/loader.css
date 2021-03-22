@@ -1,0 +1,15 @@
+.loader__container {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  z-index: 999999;
+  display: flex;
+  position: absolute;
+}
+
+.loader__container > .loader__spinner-container > .spinner {
+  height: 70px;
+  width: 70px;
+}
