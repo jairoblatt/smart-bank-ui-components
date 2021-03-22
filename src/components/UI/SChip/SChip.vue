@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "SChip",
+  name: 'SChip',
 
   props: {
     icon: {
@@ -17,7 +17,7 @@ export default {
 
     type: {
       type: String,
-      default: "primary",
+      default: 'primary',
     },
 
     large: Boolean,
@@ -27,9 +27,9 @@ export default {
   computed: {
     classes() {
       return {
-        "s-chip": true,
-        "s-chip-small": this.small,
-        "s-chip-large": this.large,
+        's-chip': true,
+        's-chip-small': this.small,
+        's-chip-large': this.large,
       };
     },
 

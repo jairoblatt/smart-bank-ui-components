@@ -1,5 +1,16 @@
 @import '@/assets/styles/style.scss';
 
+.chat-type {
+  position: relative;
+
+  .chatbox__emoji {
+    position: absolute;
+    bottom: 100%;
+    right: 4%;
+    z-index: 9;
+  }
+}
+
 .chat-type__container {
   background: $white;
   border-radius: 16px;
@@ -7,13 +18,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow: unset;
+  overflow: hidden;
 
-  .chatbox__emoji {
-    position: absolute;
-    bottom: 112%;
-    right: 1%;
-    z-index: 999;
+  .chat-type__loading {
+    background: black;
+  }
+
+  .chat-type__file-preview {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .chat-type__file {

@@ -8,6 +8,13 @@
       <div class="box__content">
         <h2>{{ message.name }}</h2>
         <span>{{ message.message }}</span>
+        <div class="box__content-image">
+          <img
+            v-if="message.image"
+            :src="message.image"
+            :alt="`Chat image ${message.name}`"
+          />
+        </div>
       </div>
 
       <div class="box__avatar">

@@ -17,7 +17,7 @@
           @hook:mounted="chatBoxOffset"
         />
       </div>
-      <ChatType @message:send="createNewMessage" />
+      <ChatType @send="createNewMessage" />
     </div>
 
     <s-card class="client-history__container">
@@ -64,7 +64,7 @@ export default {
   }),
 
   methods: {
-    newMessage({ name, avatarUrl, message, recipient }) {
+    newMessage({ name, avatarUrl, message, recipient, image }) {
       const date = new Date();
       const time = `${date.getHours()}:${date.getMinutes()}`;
 
@@ -74,24 +74,27 @@ export default {
         recipient,
         avatarUrl,
         time,
+        image,
       });
     },
 
-    createNewMessage(message) {
-      const messageClone = message.repeat(1);
+    createNewMessage({ message, image }) {
       this.newMessage({
+        message,
+        image,
         name: 'You',
         avatarUrl: 'https://randomuser.me/api/portraits/men/99.jpg',
-        message: messageClone,
         recipient: true,
       });
+
       setTimeout(() => {
         const { name, avatarUrl, status } = this.clientSelected;
         const userChat = {
           name,
           avatarUrl,
-          message: messageClone,
+          message,
           recipient: false,
+          image,
         };
         if (status === 'online') return this.newMessage(userChat);
 
