@@ -1,0 +1,49 @@
+@import '@/assets/styles/style.scss';
+
+.client__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 1.3rem;
+  margin: 0.8rem 0.5rem;
+  border-radius: 18px;
+  height: 150px;
+  transition: 500ms ease;
+
+  &.active {
+    background: $gray-ligth-3;
+  }
+  &:hover {
+    cursor: pointer;
+    background: $gray-ligth-3;
+    transition: 250ms ease-in;
+  }
+  .client__info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: $gray-darken-1;
+  }
+  .client__last-message {
+    @include text(0.87rem, 500);
+  }
+
+  @include lt-md {
+    flex: 0 0 100%;
+    margin-top: 10px;
+    .client__info {
+      width: 50%;
+      align-items: center;
+    }
+    .s-avatar-container {
+      height: 50px !important;
+      width: 50px !important;
+    }
+  }
+  @include lt-sm {
+    .client__info {
+      min-width: 70%;
+      align-items: center;
+    }
+  }
+}

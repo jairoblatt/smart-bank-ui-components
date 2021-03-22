@@ -7,12 +7,12 @@
     <div class="message__box">
       <div class="box__content">
         <h2>{{ message.name }}</h2>
-        <span>{{ message.content }}</span>
+        <span>{{ message.message }}</span>
       </div>
 
       <div class="box__avatar">
         <s-avatar rounded>
-          <img :src="message.avatarPath" :alt="`${message.name} chat Avatar`" />
+          <img :src="message.avatarUrl" :alt="`${message.name} chat Avatar`" />
         </s-avatar>
       </div>
     </div>
@@ -26,8 +26,6 @@ export default {
       type: Object,
       default: () => {},
     },
-    avatar: Boolean,
-    recipient: Boolean,
   },
 
   computed: {
@@ -35,7 +33,7 @@ export default {
       return {
         'chatbox-message': true,
         'bounce-enter-active': true,
-        'chatbox-message--recipient': this.recipient,
+        'chatbox-message--recipient': this.message.recipient,
       };
     },
   },

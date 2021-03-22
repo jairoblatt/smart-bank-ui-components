@@ -13,19 +13,19 @@
 
     <div class="head__actions">
       <ul class="action__items">
-        <li>
+        <li class="action__item">
           <s-button text>
             <i class="mdi mdi-phone"></i>
           </s-button>
         </li>
 
-        <li>
+        <li class="action__item">
           <s-button text>
             <i class="mdi mdi-magnify"></i>
           </s-button>
         </li>
-        <hr />
-        <li>
+        <hr class="divider" />
+        <li class="action__item">
           <s-button text>
             <i class="mdi mdi-dots-vertical"></i>
           </s-button>

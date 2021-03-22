@@ -2,12 +2,10 @@
 
 .chat-layout {
   display: grid;
-  grid-template-columns: 19% 1fr 25%;
-  grid-template-rows: 1fr;
-  padding: 20px 30px;
-  margin: 0;
-  grid-column-gap: 10px;
+  grid-template-columns: 19% 1fr 19%;
   grid-template-areas: 'clients chat history';
+  margin: 2rem 1rem;
+
   .clients-layout {
     grid-area: clients;
   }
@@ -17,9 +15,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
   }
 
-  .client-history-container {
+  .client-history__container {
     grid-column: history;
   }
 
@@ -36,9 +35,11 @@
 }
 
 // Client history
-.client-history-container {
-  padding: 50px 15px;
+.client-history__container {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  padding: 0 1rem;
 }

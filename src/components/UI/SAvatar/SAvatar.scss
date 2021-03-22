@@ -1,29 +1,30 @@
 @import '../../../assets/styles/style.scss';
 $border-radius: 20px;
-$border-radius-rounded:50%;
+$border-radius-rounded: 50%;
 
-.s-avatar-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: normal;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    overflow: hidden;
-    border-radius:$border-radius;
-    color: $white;
-    background: $primary;
-    @include text(1.1rem);
-    padding: 10px;
-    img{
-        border-radius: inherit;
-        display: inline-flex;
-        height: inherit;
-        width: inherit;
-    }
+.s-avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  border-radius: $border-radius;
+  color: $white;
+  background: $primary;
+  @include text(1.1rem);
+  padding: 10px;
+  img {
+    border-radius: inherit;
+    display: inline-flex;
+    height: inherit;
+    width: inherit;
+    object-fit: fill;
+  }
 }
 
-.s-avatar-rounded{
-    border-radius: $border-radius-rounded!important;
+.s-avatar-rounded {
+  border-radius: $border-radius-rounded !important;
 }

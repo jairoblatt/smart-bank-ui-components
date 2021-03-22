@@ -1,10 +1,31 @@
 <template>
-  <div class="client-profile">
-    <s-avatar size="120">
-      <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="" />
+  <div class="client__profile-container">
+    <s-avatar v-if="avatarUrl" size="120">
+      <img :src="avatarUrl" alt="Client Avatar" />
     </s-avatar>
-    <h2>Angela Mayer</h2>
-    <h3>your personal Agent</h3>
+    <h2>{{ name }}</h2>
+    <h3>{{ description }}</h3>
+    <hr class="divider" />
   </div>
 </template>
-<style lang="scss" src="./ClientProfile.scss"/>
+<script>
+import './ClientProfile.scss';
+
+export default {
+  props: {
+    name: {
+      type: String,
+    },
+
+    description: {
+      type: String,
+      default: 'No description',
+    },
+
+    avatarUrl: {
+      type: [String, Boolean],
+      default: false,
+    },
+  },
+};
+</script>

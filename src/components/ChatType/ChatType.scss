@@ -1,0 +1,59 @@
+@import '@/assets/styles/style.scss';
+
+.chat-type__container {
+  background: $white;
+  border-radius: 16px;
+  padding: 0.1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: unset;
+
+  .chatbox__emoji {
+    position: absolute;
+    bottom: 112%;
+    right: 1%;
+    z-index: 999;
+  }
+
+  .chat-type__file {
+    padding: 8px 13.33px;
+    border-radius: 50%;
+
+    input {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    &:hover {
+      @include hover;
+      background: $gray-ligth-4;
+    }
+  }
+
+  .chat-type__actions {
+    ul {
+      display: inline-flex;
+
+      .chat-type__actions--active {
+        i {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .chat-type__text-field {
+    box-shadow: none;
+    input {
+      color: $gray-darken-1;
+    }
+  }
+
+  .chat-type__emoji {
+    position: absolute;
+  }
+}

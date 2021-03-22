@@ -2,10 +2,10 @@
   <div class="search-bar-container">
     <input
       v-model="$attrs.value"
-      @input="$emit('input', $event.target.value)"
       type="text"
       class="search-input"
-      placeholder="Search"
+      v-bind="$attrs"
+      @input="$emit('input', $event.target.value)"
     />
     <button type="submit" class="search-button">
       <i class="mdi mdi-magnify"></i>
@@ -15,4 +15,4 @@
 <script>
 export default {};
 </script>
-<style lang="scss" src="./SearchBar.scss"/>
+<style lang="scss" src="./SearchBar.scss" />

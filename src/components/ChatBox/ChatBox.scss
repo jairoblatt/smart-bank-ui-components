@@ -1,12 +1,10 @@
 @import '@/assets/styles/style.scss';
 
-// ChatBox
-
 .chatbox-message__container {
   display: flex;
   flex-direction: column;
-  height: 70vh;
   overflow-y: scroll;
+  height: 70vh;
   position: relative;
 
   @include lt-md {
@@ -16,11 +14,10 @@
 
 .chatbox-message {
   display: flex;
-  padding: 0 30px;
-  margin: 10px;
   justify-content: flex-end;
   flex-direction: row-reverse;
-  position: relative;
+  padding: 0 1rem;
+  margin: 0.4rem;
 
   .message__date {
     margin: 0 15px;
@@ -33,16 +30,19 @@
     display: flex;
     align-self: flex-end;
     flex-direction: row-reverse;
+
     .box__content {
-      padding: 20px 30px;
+      padding: 0.8rem 1rem;
       border-radius: 25px 25px 25px 2px;
       background: $white;
-      color: black;
+
       h2 {
         @include text(0.988rem, 600);
+        margin: 0;
         margin-bottom: 10px;
       }
     }
+
     .box__avatar {
       flex: 0 0 5%;
       margin: 0 10px;

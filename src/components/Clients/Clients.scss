@@ -1,0 +1,58 @@
+@import '@/assets/styles/style.scss';
+
+.clients__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 15px;
+  border-radius: 22px;
+
+  .clients__searchbar {
+    hr {
+      border: none;
+      height: 1px;
+      width: 90%;
+    }
+    .clients__searchbar-input {
+      box-shadow: none;
+    }
+  }
+  .clients__avaliable {
+    margin: 25px 0;
+    overflow-y: scroll;
+    height: 67vh;
+
+    .client__avaliable--active {
+      background: $gray-ligth-4;
+    }
+  }
+
+  .client__notfound {
+    display: flex;
+    justify-content: center;
+  }
+
+  .clients__actions {
+    display: flex;
+    justify-content: center;
+
+    button {
+      flex: 0 0 80%;
+    }
+  }
+
+  @include lt-md {
+    .clients__avaliable {
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: scroll;
+      max-height: 500px;
+    }
+  }
+}
+
+.divider {
+  color: $gray-ligth-3;
+  background-color: $gray-ligth-3;
+}

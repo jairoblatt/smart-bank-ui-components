@@ -3,8 +3,9 @@
     <label for="">{{ label }}</label>
     <input
       v-model="$attrs.value"
-      @focus="$emit('focus')"
+      v-bind="$attrs"
       :type="type"
+      @focus="$emit('focus')"
       @input="$emit('input', $event.target.value)"
     />
     <transition mode="out-in" name="slide">

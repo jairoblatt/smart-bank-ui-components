@@ -12,9 +12,9 @@ import '@mdi/font/css/materialdesignicons.min.css';
 Vue.config.productionTip = false;
 
 // Plugins
-Vue.use(VueMeta)
+Vue.use(VueMeta);
 
 new Vue({
   router,
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');

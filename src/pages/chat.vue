@@ -1,118 +1,116 @@
 <template>
   <div class="container-fluid chat-layout">
     <div class="clients-layout">
-      <card-clients @client-selected="testing" />
+      <Clients @click:client="clientHandler" />
     </div>
 
-    <!-- Chat -->
     <div class="chat-container">
-      <!-- Title and status -->
-
-      <ChatHead :user-name="clientSelected.name" status="online" />
-
-      <div class="chatbox-message__container">
+      <ChatHead
+        :user-name="clientSelected.name"
+        :status="clientSelected.status"
+      />
+      <div class="chatbox-message__container" ref="chatbox">
         <ChatBox
           v-for="(message, index) in messages"
           :key="`chat-box-message-${index}`"
           :message="message"
-          :recipient="message.recipient"
-          :isTyping="msg.length > 0"
+          @hook:mounted="chatBoxOffset"
         />
       </div>
-
-      <!-- Chat action -->
-      <div class="chat-text-box" @keydown.enter="sendMsg">
-        <s-card class="chat-client-info text-box">
-          <!-- File input -->
-          <div class="file">
-            <label for="file-input">
-              <i class="mdi mdi-attachment"></i>
-            </label>
-            <input type="file" id="file-input" />
-          </div>
-
-          <!-- Field message -->
-          <s-text-field v-model="msg" />
-
-          <!-- Chat Actions -->
-          <div class="chat-client-actions">
-            <ul>
-              <li><i class="mdi mdi-emoticon"></i></li>
-              <li @click="sendMsg"><i class="mdi mdi-send"></i></li>
-            </ul>
-          </div>
-        </s-card>
-      </div>
+      <ChatType @message:send="createNewMessage" />
     </div>
 
-    <!-- History -->
-    <s-card class="client-history-container">
-      <!-- Client Profile -->
-      <client-profile />
-      <!-- Line -->
-      <hr />
-      <!-- Client history -->
-      <client-history />
+    <s-card class="client-history__container">
+      <ClientProfile
+        :name="clientSelected.name"
+        :description="clientSelected.messagePreview"
+        :avatar-url="clientSelected.avatarUrl"
+      />
+      <hr class="divider" />
+      <ClientHistory
+        :resolved-issues="clientSelected.resolvedIssues"
+        :tags="clientSelected.tags"
+      />
     </s-card>
   </div>
 </template>
 <script>
 import SearchBar from '@/components/SearchBar';
-import CardClients from '@/components/CardClients';
-import ChatBox from '@/components/ChatBox';
-import ChatHead from '@/components/ChatHead';
+import Clients from '@/components/Clients';
 import ClientProfile from '@/components/ClientProfile';
 import ClientHistory from '@/components/ClientHistory';
+import ChatBox from '@/components/ChatBox';
+import ChatHead from '@/components/ChatHead';
+import ChatType from '@/components/ChatType';
+
+import '@/assets/styles/chat.scss';
+
 export default {
+  name: 'PageChat',
+
   components: {
     SearchBar,
-    CardClients,
+    Clients,
     ChatBox,
     ChatHead,
+    ChatType,
     ClientProfile,
     ClientHistory,
   },
 
   data: () => ({
-    msg: '',
     messages: [],
-    clientSelected: '',
+    clientSelected: {},
   }),
 
   methods: {
-    // Factory for new message
-    createMessage(name, avatarPath, content, recipient = false) {
+    newMessage({ name, avatarUrl, message, recipient }) {
       const date = new Date();
       const time = `${date.getHours()}:${date.getMinutes()}`;
-      avatarPath = `https://randomuser.me/api/portraits/${avatarPath}`;
+
       this.messages.push({
         name,
-        content,
+        message,
         recipient,
-        avatarPath,
+        avatarUrl,
         time,
       });
     },
 
-    sendMsg() {
-      const msgClone = this.msg.repeat(1);
-      // Clear form
-      this.msg = '';
-
-      // send message
-      this.createMessage('You', 'men/33.jpg', msgClone, true);
-
-      //  Clone the same message
+    createNewMessage(message) {
+      const messageClone = message.repeat(1);
+      this.newMessage({
+        name: 'You',
+        avatarUrl: 'https://randomuser.me/api/portraits/men/99.jpg',
+        message: messageClone,
+        recipient: true,
+      });
       setTimeout(() => {
-        this.createMessage('Lorem Ipsum', 'women/95.jpg', msgClone);
+        const { name, avatarUrl, status } = this.clientSelected;
+        const userChat = {
+          name,
+          avatarUrl,
+          message: messageClone,
+          recipient: false,
+        };
+        if (status === 'online') return this.newMessage(userChat);
+
+        this.newMessage({
+          ...userChat,
+          message: 'Sorry, I am not online at the moment 😕',
+        });
       }, Math.random() * 3000);
     },
 
-    testing(event) {
-      this.clientSelected = event;
+    chatBoxOffset() {
+      const chatboxElement = this.$refs.chatbox;
+      chatboxElement.scrollTop = chatboxElement.scrollHeight;
+    },
+
+    clientHandler(client) {
+      this.clientSelected = client;
+      this.messages = [];
     },
   },
 };
 </script>
-
-<style lang="scss" src="../assets/styles/chat.scss" />

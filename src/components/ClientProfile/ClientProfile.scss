@@ -1,16 +1,26 @@
 @import '@/assets/styles/style.scss';
 
-.client-profile {
-    flex: 0 0 30%;
-    align-self: center;
+.client__profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    @include text(0.97rem, 600);
+    margin: 1rem 0;
+  }
+
+  h3 {
+    color: $gray-ligth-1;
+    @include text(0.75rem, 500);
+    margin: 0;
     text-align: center;
-    h2{
-        @include text(0.97rem,600);
-        margin-top: 20px;
-    }
-    h3{
-        color: $gray-ligth-1;
-        @include text(0.75rem,500);
-        margin: 0;
-    }
+  }
+
+  hr {
+    height: 1px;
+    width: 90%;
+    border: none;
+  }
 }
