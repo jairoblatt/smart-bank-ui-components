@@ -1,39 +1,34 @@
-// imports
-@import '../../../assets/styles/style.scss';
+@import '@/assets/styles/style.scss';
 
 .spinner-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: cente;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: cente;
+}
+.spinner {
+  pointer-events: none;
+  border: 0.255em solid transparent;
+  border-color: #eeeeee;
+  border-top-color: #01a3ff;
+  border-radius: 50%;
+  animation: loadingspin 0.5s linear infinite;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
   }
-  .spinner {
-    pointer-events: none;
-    border: 0.255em solid transparent;
-    border-color: #eeeeee;
-    border-top-color: #01a3ff;
-    border-radius: 50%;
-    animation: loadingspin 0.5s linear infinite;
-  }
-  
-  @keyframes spinner {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+}
 
 $primary: ('primary', #01a3ff);
 $success: ('success', #1eba62);
 $danger: ('danger', #e950ca);
 
-$spinner-themes-color: (
-      $primary,
-      $success,
-      $danger
-) !default;
+$spinner-themes-color: ($primary, $success, $danger) !default;
 
-@each $name,$color in $spinner-themes-color {
-    .s-spinner-#{$name}{
-      border-top-color:$color!important;
-    }
+@each $name, $color in $spinner-themes-color {
+  .s-spinner-#{$name} {
+    border-top-color: $color !important;
+  }
 }

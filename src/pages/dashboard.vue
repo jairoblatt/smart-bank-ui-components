@@ -1,6 +1,5 @@
 <template>
   <div class="layout-content-container">
-    
     <div class="layout-aside">
       <div class="container-fluid">
         <div class="row">
@@ -57,15 +56,15 @@
   </div>
 </template>
 <script>
-import DefaultLayout from "../layouts/default";
-import CardDebit from "@/components/CardDebit";
-import CardExpense from "@/components/CardExpense";
-import SearchBar from "@/components/SearchBar";
-import UserCard from "@/components/UserCard";
-import CardNewProduct from "@/components/CardNewProduct";
-import Tabs from "@/components/Tabs";
+import DefaultLayout from '../layouts/default';
+import CardDebit from '@/components/CardDebit';
+import CardExpense from '@/components/CardExpense';
+import SearchBar from '@/components/SearchBar';
+import UserCard from '@/components/UserCard';
+import CardNewProduct from '@/components/CardNewProduct';
+import Tabs from '@/components/Tabs';
 
-import storageNewUser from "@/mixins/storageNewUser";
+import storageNewUser from '@/mixins/storageNewUser';
 export default {
   mixins: [storageNewUser],
   components: {
@@ -81,16 +80,16 @@ export default {
   data: () => ({
     expenseCardContent: [
       {
-        title: "Clothes and shoes",
-        description: "At least three times a month you go for clothes.",
+        title: 'Clothes and shoes',
+        description: 'At least three times a month you go for clothes.',
       },
       {
-        title: "Transport",
-        description: "You after pay ground transportation.",
+        title: 'Transport',
+        description: 'You after pay ground transportation.',
       },
       {
-        title: "Sporting goods",
-        description: "Soon your dumbbells will hava now here to go.",
+        title: 'Sporting goods',
+        description: 'Soon your dumbbells will hava now here to go.',
       },
     ],
     card: {

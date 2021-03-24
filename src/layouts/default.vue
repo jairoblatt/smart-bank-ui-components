@@ -1,21 +1,22 @@
 <template>
   <div class="layout-container container-fluid">
     <div class="layout-navigation-drawer">
-      <navigation-drawer />
+      <NavigationDrawer />
     </div>
     <div class="layout-content-page">
       <div class="row">
-        <child />
+        <Child />
       </div>
     </div>
+    <AppConfig />
   </div>
 </template>
 
 <script>
-import NavigationDrawer from '@/components/NavigationDrawer';
 export default {
   components: {
-    NavigationDrawer,
+    NavigationDrawer: () => import('@/components/NavigationDrawer/index.vue'),
+    AppConfig: () => import('@/components/AppConfig'),
   },
 };
 </script>

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import routes from './routes';
 import Router from 'vue-router';
+import Store from '@/store';
 
 Vue.use(Router);
 const router = createRouter();
@@ -46,8 +47,7 @@ async function afterEach(to, from, next) {
   await router.app.$nextTick();
   const { $loading } = appChildren();
   $loading.finish();
-
-  setTimeout(disableAppLoader, 500);
+  setTimeout(() => Store.dispatch('navigation/loaderApp', false), 500);
 }
 
 function resolveComponents(components) {
@@ -60,11 +60,6 @@ function resolveComponents(components) {
 
 function appChildren() {
   return router.app.$children[0];
-}
-
-function disableAppLoader() {
-  const appLoader = document.querySelector('[data-app="loader"]');
-  if (appLoader) appLoader.style.display = 'none';
 }
 
 export default router;

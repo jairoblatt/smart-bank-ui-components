@@ -6,25 +6,28 @@
 </template>
 
 <script>
-import loading from "@/components/LoadingBar";
+import loading from '@/components/LoadingBar';
+
+import '@/assets/styles/section.scss';
+import '@/assets/styles/darkmode.scss';
 
 // Load layout components dynamically.
-const requireContext = require.context("@/layouts", false, /.*\.vue$/);
+const requireContext = require.context('@/layouts', false, /.*\.vue$/);
 const layouts = requireContext
   .keys()
-  .map((file) => [file.replace(/(^.\/)|(\.vue$)/g, ""), requireContext(file)])
+  .map(file => [file.replace(/(^.\/)|(\.vue$)/g, ''), requireContext(file)])
   .reduce((components, [name, component]) => {
     components[name] = component.default || component;
     return components;
   }, {});
-export default {
 
+export default {
   metaInfo() {
     return {
-      titleTemplate: "%s - Smart Bank Template",
+      titleTemplate: '%s - Smart Bank Template',
       title: this.currentPageName,
       htmlAttrs: {
-        lang: "en",
+        lang: 'en',
         amp: true,
       },
     };
@@ -34,8 +37,8 @@ export default {
     // Get name of current route
     currentPageName() {
       const { name } = this.$route;
-      if (!name) return "Unknown";
-      return name.replace(/[A-Z]/g, " $&").trim();
+      if (!name) return 'Unknown';
+      return name.replace(/[A-Z]/g, ' $&').trim();
     },
   },
 
@@ -45,15 +48,22 @@ export default {
 
   data: () => ({
     layout: null,
-    defaultLayout: "default",
+    defaultLayout: 'default',
   }),
+
+  created() {
+    this.$store.dispatch(
+      'navigation/darkModeHandler',
+      JSON.parse(localStorage.getItem('@dark-mode'))
+    );
+  },
 
   mounted() {
     this.$loading = this.$refs.loading;
   },
 
   methods: {
-  //  Set the application layout.
+    //  Set the application layout.
     setLayout({ layout }) {
       if (!layout || !layouts[layout]) {
         layout = this.defaultLayout;
@@ -63,4 +73,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" src="./assets/styles/section.scss"/>

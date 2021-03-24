@@ -1,0 +1,88 @@
+@import '@/assets/styles/style.scss';
+
+$border-radius: 7px;
+
+.s-select {
+  min-width: 160px;
+  height: 40px;
+  position: relative;
+  margin: 10px 1px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.s-select span:hover {
+  text-decoration: none;
+}
+
+.s-select__toggle {
+  color: #636b6f;
+  min-width: 160px;
+  padding: 10px 20px 10px 10px;
+  text-transform: none;
+  font-weight: 300;
+  margin-bottom: 7px;
+  border: 0;
+  background: transparent;
+  transition: background 60ms ease-out;
+  float: none;
+  box-shadow: none;
+  border-radius: $border-radius;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.s-select__toggle:hover {
+  background: #e1e1e1;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+.s-select__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #fff;
+  border-radius: $border-radius;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.075);
+  background-clip: padding-box;
+
+  .s-select__item {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+
+    & span {
+      padding: 10px 20px;
+      display: block;
+      clear: both;
+      font-weight: normal;
+      line-height: 1.6;
+      color: #333333;
+      white-space: nowrap;
+      text-decoration: none;
+
+      &:hover {
+        background: #efefef34;
+        color: $primary;
+      }
+    }
+  }
+}

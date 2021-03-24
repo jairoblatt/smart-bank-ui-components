@@ -1,0 +1,122 @@
+@import '@/assets/styles/style.scss';
+
+$dark-1: #1f242c;
+$dark-2: #222831;
+$dark-3: #373e49;
+$dark-5: #cecece;
+$dark-6: #eeeeee;
+
+.dark-mode {
+  #app {
+    background: $dark-1;
+    color: $dark-6;
+
+    .s-text-field {
+      box-shadow: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: $dark-6;
+    }
+
+    .layout-container {
+      .s-card,
+      .search-bar-container {
+        background: $dark-2;
+        box-shadow: none;
+        color: $dark-6;
+      }
+      .s-text-field,
+      input {
+        background: $dark-2;
+        color: $dark-6;
+      }
+
+      .search-bar-container {
+        .search-input {
+          color: $dark-6;
+        }
+      }
+
+      //   Navigation Drawer
+      .navigation-drawer-container {
+        background: $dark-2;
+        .navigation-drawer-logo {
+          color: $dark-6;
+        }
+        i {
+          color: $dark-6;
+        }
+      }
+
+      //   Chat
+      .chat-layout {
+        .divider {
+          background: $dark-3;
+        }
+
+        .chatbox-message:not(.chatbox-message--recipient)
+          .message__box
+          .box__content {
+          background: $dark-2;
+        }
+
+        .clients__searchbar {
+          i,
+          input {
+            color: $dark-5;
+          }
+        }
+
+        .chatbox__emoji #EmojiPicker {
+          background: $dark-2;
+          border: none;
+        }
+
+        .client__container {
+          background: transparent;
+          &.client__avaliable--active,
+          &:hover {
+            background: $dark-3;
+          }
+        }
+
+        .chat-type__file {
+          i {
+            color: $dark-5;
+          }
+          &:hover {
+            background: $dark-1;
+          }
+        }
+
+        .s-btn--text {
+          color: $dark-5;
+        }
+      }
+      .table-container {
+        tr > th {
+          color: $dark-5;
+        }
+      }
+      .tabs-container .default-module_item--active_2dOoK {
+        color: $dark-5 !important;
+      }
+
+      .app-config__container {
+        background: $dark-1;
+      }
+
+      .s-card-title {
+        color: $dark-6;
+      }
+
+      .s-btn,
+      .s-btn i {
+        color: $dark-6;
+      }
+    }
+  }
+}

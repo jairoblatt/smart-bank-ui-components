@@ -5,190 +5,177 @@
 html,
 body,
 #app {
-    font-family: $font-family-default;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #F5F6FA !important;
-}
-
-.h-100 {
-    height: 100%;
+  font-family: $font-family-default;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #f5f6fa;
 }
 
 // LAYOUT DEFAULT GRID
 .layout-container {
-    display: grid;
-    grid-template-columns: 6% 1fr;
-    grid-template-rows: 1fr;
-    height: 100%;
-    padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 7.4% 1fr;
+  grid-template-areas:
+    'NavigationDrawer ContentPage'
+    'NavigationDrawer ContentPage';
+
+  .layout-navigation-drawer {
+    grid-area: NavigationDrawer;
+  }
+
+  .layout-content-page {
+    grid-area: ContentPage;
+  }
+
+  @include lt-md {
+    grid-template-columns: 1fr;
     grid-template-areas:
-        'NavigationDrawer ContentPage'
-        'NavigationDrawer ContentPage';
-
-    .layout-navigation-drawer {
-        grid-area: NavigationDrawer;
-    }
-
-    .layout-content-page {
-        grid-area: ContentPage;
-    }
-
-    @include lt-md {
-        grid-template-columns:1fr;
-        grid-template-areas:
-        'NavigationDrawer NavigationDrawer'
-        'ContentPage ContentPage';
-    }
+      'NavigationDrawer NavigationDrawer'
+      'ContentPage ContentPage';
+  }
 }
 
 // LAYOUT PAYMENT GRID
 .layout-content-container {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: 380px 1fr;
-    grid-template-rows: 1fr;
-    height: 100%;
-    padding-left: 0 !important;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  padding-left: 0 !important;
+  grid-template-areas:
+    'aside section'
+    'aside section';
+
+  .layout-aside {
+    grid-area: aside;
+  }
+
+  .layout-section {
+    grid-area: section;
+  }
+
+  @include lt-md {
+    margin-top: 80px;
     grid-template-areas:
-        'aside section'
-        'aside section';
-
-    .layout-aside {
-        grid-area: aside;
-    }
-
-    .layout-section {
-        grid-area: section;
-    }
-
-    @include lt-md {
-        margin-top: 80px;
-        grid-template-areas:
-            'aside aside'
-            'section section';
-    }
+      'aside aside'
+      'section section';
+  }
 }
 
-
-
 .text-blue {
-    color: $blue;
+  color: $blue;
 }
 
 .layout-default-container {
-    margin-left: 70px;
-    padding-right: 0 !important;
-    margin-right: 0 !important;
+  margin-left: 70px;
+  padding-right: 0 !important;
+  margin-right: 0 !important;
 }
 
 // section type
 .section-title {
-    h2 {
-        @include text(1.1rem, 500);
-        color: $gray-darken-3;
-        padding-left: 10px;
-        padding-top: 10px;
-    }
+  h2 {
+    @include text(1.1rem, 500);
+    color: $gray-darken-3;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
 }
 
 /* SCROLL BAR */
 ::-webkit-scrollbar {
-    width: 4.5px;
-    height: 4.5px;
-    border-radius: 20px;
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    background-color: $gray-darken-3;
+  border-radius: 20px;
+  background-color: $gray-darken-3;
 }
-
 
 // tetsings
 .mb-section {
-    margin-bottom: $spacing-between-sections;
+  margin-bottom: $spacing-between-sections;
 }
 
 .debit-card-top-container {
-    display: flex;
-    align-items: center;
-    @include lt-sm{
-        justify-content: center;
-    }
+  display: flex;
+  align-items: center;
+  @include lt-sm {
+    justify-content: center;
+  }
 }
-
 
 // DEMO SECTION HERE
 .layout-demo-container {
-    display: grid;
-    grid-template-columns: 50% 1fr;
-    width: 100%;
-    height: auto;
-    position: relative;
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  width: 100%;
+  height: auto;
+  position: relative;
+  grid-template-areas:
+    'example api'
+    'example api';
+  @include lt-md {
     grid-template-areas:
-        'example api'
-        'example api';
-        @include lt-md{
-            grid-template-areas:
-            'example example'
-            'api api';
-        }
-    .layout-demo-exemple {
-        grid-area: example;
+      'example example'
+      'api api';
+  }
+  .layout-demo-exemple {
+    grid-area: example;
+  }
+  .layout-demo-api {
+    grid-area: api;
+  }
+  .layout-title {
+    color: $gray-darken-3;
+    h1 {
+      @include text(2rem, 500);
     }
-    .layout-demo-api {
-        grid-area: api;
+    span {
+      color: $primary;
     }
-    .layout-title {
-        color: $gray-darken-3;
-        h1 {
-            @include text(2rem, 500);
-        }
-        span {
-            color: $primary;
-        }
-    }
-
+  }
 }
 
 .demo-container {
-    h3 {
-        @include text(0.9rem, 400);
-        margin: 0;
-        margin-bottom: 10px;
-        color: $gray-darken-3;
+  h3 {
+    @include text(0.9rem, 400);
+    margin: 0;
+    margin-bottom: 10px;
+    color: $gray-darken-3;
+  }
+
+  h2 {
+    color: $gray-darken-3;
+    margin: 0;
+    @include text(1rem, 500);
+
+    span {
+      color: $primary;
+    }
+  }
+
+  .demo-title {
+    padding: 10px 23px;
+  }
+
+  .demo-content {
+    display: flex;
+    padding: 10px 0;
+    flex-wrap: wrap;
+
+    .demo-item {
+      padding-left: 10px;
+      padding-top: 10px;
     }
 
-    h2 {
-        color: $gray-darken-3;
-        margin: 0;
-        @include text(1rem, 500);
-
-        span {
-            color: $primary;
-
-        }
+    @include lt-md {
+      align-items: center;
     }
-
-    .demo-title {
-        padding: 10px 23px;
-    }
-
-    .demo-content {
-        display: flex;
-        padding: 10px 0;
-        flex-wrap: wrap;
-
-        .demo-item {
-            padding-left: 10px;
-            padding-top: 10px;
-        }
-
-        @include lt-md {
-            align-items: center;
-        }
-    }
+  }
 }

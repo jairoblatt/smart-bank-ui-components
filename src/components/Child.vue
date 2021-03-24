@@ -1,17 +1,17 @@
 <template>
-  <s-transition transition="fade">
+  <STransition transition="fade">
     <slot>
       <router-view />
     </slot>
-  </s-transition>
+  </STransition>
 </template>
 
 <script>
-import STransition from './UI/STransition'
+import STransition from './UI/STransition';
 export default {
   name: 'Child',
-  components:{
-      STransition
+  components: {
+    STransition,
   },
-}
+};
 </script>
