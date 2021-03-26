@@ -19,6 +19,10 @@ module.exports = {
     rate: 'Taxa',
     pay: 'Pagar',
     more: 'Mais',
+    income: 'Renda',
+    spending: 'Gastos',
+    openProduct: 'Abra um novo produto',
+    cards: 'Cartões de débito, depósitos',
   },
 
   settings: {

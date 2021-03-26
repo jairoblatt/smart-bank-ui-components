@@ -1,6 +1,11 @@
 <template>
   <div class="select-lang__container">
-    <SSelect :items="locales" :selected="localeSelected" @select="setLocale" />
+    <SSelect
+      :items="locales"
+      :selected="localeSelected"
+      closeOutside
+      @select="setLocale"
+    />
   </div>
 </template>
 <script>
@@ -15,7 +20,7 @@ export default {
   computed: {
     ...mapGetters({ locale: 'lang/locale', locales: 'lang/locales' }),
     localeSelected() {
-      const currentLocale = this.$i18n.locale;
+      const currentLocale = this.$i18n.locale || this.locale;
       return this.locales.find(({ code }) => code === currentLocale);
     },
   },

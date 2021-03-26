@@ -4,17 +4,15 @@
     :class="classes"
     :style="styles"
     :disabled="disabled"
-    @click="$emit('click')"
+    @click="clickHandler"
   >
-    <router-link :to="{ ...to }" tag="span">
-      <s-transition>
-        <s-spinner :size="spinnerSize" :loading="spinnerLoading">
-          <span>
-            <slot />
-          </span>
-        </s-spinner>
-      </s-transition>
-    </router-link>
+    <s-transition>
+      <s-spinner :size="spinnerSize" :loading="spinnerLoading">
+        <span>
+          <slot />
+        </span>
+      </s-spinner>
+    </s-transition>
   </button>
 </template>
 
@@ -68,11 +66,20 @@ export default {
       if (this.xLarge) return 32;
       if (this.small) return 23;
       if (this.xSmall) return 21;
-      else return 30;
+      return 30;
     },
 
     spinnerLoading() {
       return this.loading && !this.disabled;
+    },
+  },
+
+  methods: {
+    clickHandler() {
+      if (this.to && Object.keys(this.to).length) {
+        this.$router.push(this.to);
+      }
+      this.$emit('click');
     },
   },
 };

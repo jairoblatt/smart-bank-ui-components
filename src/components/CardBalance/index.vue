@@ -1,6 +1,6 @@
 <template>
-  <s-card>
-    <s-card-body>
+  <SCard>
+    <SCardBody>
       <div class="debit-container">
         <div class="debit-stats">
           <div class="stats-title">
@@ -14,7 +14,8 @@
             </div>
             <div class="debit-content">
               <h2>
-                {{ $t('dashboard.cashback') }}<s-chip type="success">?</s-chip>
+                {{ $t('dashboard.cashback') }}
+                <SChip type="success" v-text="'?'" />
               </h2>
               <h4>$ {{ cashBack }}</h4>
             </div>
@@ -22,10 +23,8 @@
               <h2>{{ $t('dashboard.rate') }}</h2>
               <h4>
                 {{ rate }}%
-                <s-chip
-                  :type="percentageByFee.type"
-                  :icon="percentageByFee.icon"
-                  >{{ percentageByFee.rate }}%</s-chip
+                <SChip :type="percent.type" :icon="percent.icon"
+                  >{{ percent.rate }}%</SChip
                 >
               </h4>
             </div>
@@ -34,25 +33,26 @@
 
         <div class="debit-action">
           <div class="ml-1">
-            <s-button @click="loading = !loading" :loading="loading">{{
+            <SButton @click="loading = !loading" :loading="loading">{{
               $t('dashboard.pay')
-            }}</s-button>
+            }}</SButton>
           </div>
           <div class="ml-1">
-            <s-button outlined>{{ $t('dashboard.more') }}</s-button>
+            <SButton outlined>{{ $t('dashboard.more') }}</SButton>
           </div>
         </div>
       </div>
-    </s-card-body>
-  </s-card>
+    </SCardBody>
+  </SCard>
 </template>
 
 <script>
-import './DebitCard.scss';
+import './CardBalance.scss';
 
 export default {
   data: () => ({
     loading: false,
+    percent: '',
   }),
 
   props: {
@@ -62,23 +62,22 @@ export default {
     name: String,
   },
 
-  computed: {
-    percentageByFee() {
-      this.name;
-      return this.generateRate();
+  watch: {
+    name() {
+      this.percent = this.generateRate();
     },
   },
 
   methods: {
     generateRate() {
-      let rate = (Math.floor(Math.random() * 201) - 100).toFixed(0);
-      if (rate < 0) {
+      if ((Math.floor(Math.random() * 201) - 100).toFixed(0) < 0) {
         return {
           icon: 'mdi mdi-arrow-down',
           type: 'danger',
           rate: rate,
         };
       }
+
       return {
         icon: 'mdi mdi-arrow-up',
         type: 'success',

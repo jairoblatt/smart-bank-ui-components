@@ -8,7 +8,7 @@
         <Child />
       </div>
     </div>
-    <AppConfig />
+    <Settings />
   </div>
 </template>
 
@@ -16,7 +16,7 @@
 export default {
   components: {
     NavigationDrawer: () => import('@/components/NavigationDrawer/index.vue'),
-    AppConfig: () => import('@/components/AppConfig'),
+    Settings: () => import('@/components/Settings'),
   },
 };
 </script>

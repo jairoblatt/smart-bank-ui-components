@@ -53,5 +53,7 @@ export const actions = {
   loaderApp(_, payload) {
     const appLoader = document.querySelector('[data-app="loader"]');
     appLoader.style.display = payload ? 'flex' : 'none';
+    window.onscroll = () => (payload ? window.scrollTo(0, 0) : {});
+    document.body.classList[payload ? 'add' : 'remove']('overflow-hidden');
   },
 };

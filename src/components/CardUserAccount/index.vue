@@ -1,40 +1,36 @@
 <template>
   <s-card center>
     <div class="user-card-container">
-
       <div class="user-info">
         <s-avatar size="70">
-          <img
-            :src="avatarPath"
-            class="avatar"
-            alt="User Avatar"
-          />
+          <img :src="user.avatarUrl" class="avatar" alt="User Avatar" />
         </s-avatar>
 
-        <h2>Sophia Reyes</h2>
+        <h2>{{ user.fullname }}</h2>
         <h3><span>$</span> {{ userBalance }}</h3>
       </div>
 
       <div class="user-revenues">
         <div class="revenue-item">
-          <h3>Income</h3>
+          <h3>{{ $t('dashboard.income') }}</h3>
           <h2>${{ income }}<i class="mdi mdi-arrow-up"></i></h2>
         </div>
 
-        <hr class="divider"></hr>
+        <hr class="divider" />
 
         <div class="revenue-item">
-          <h3>Spending</h3>
+          <h3>{{ $t('dashboard.spending') }}</h3>
           <h2>${{ spending }} <i class="mdi mdi-arrow-down"></i></h2>
         </div>
       </div>
 
       <div class="user-credit-card">
         <div
-          :class="`credit-card-item  ${ cardSelected.index == index ? 'active' : '' }`"
           v-for="(card, index) in cards"
           :key="index"
-          @click="selectedCard(card,index)"
+          class="credit-card-item"
+          :class="{ active: cardSelected.index == index }"
+          @click="selectedCard({ card, index })"
         >
           <i class="mdi mdi-credit-card-outline"></i>
 
@@ -42,60 +38,69 @@
             <h2>{{ card.name }}</h2>
             <h3>${{ card.value }}</h3>
           </div>
-        
-          <s-button text>
+
+          <SButton text>
             <i class="mdi mdi-dots-vertical"></i>
-          </s-button>
+          </SButton>
         </div>
       </div>
     </div>
   </s-card>
 </template>
 <script>
+import './CardUserAccount.scss';
 
 export default {
   data: () => ({
     cardSelected: 0,
-    avatarPath: "https://randomuser.me/api/portraits/women/49.jpg",
+    cards: [
+      {
+        name: 'Debit card 1',
+        value: 23.64,
+      },
+      {
+        name: 'Credit card 1',
+        value: 22.43,
+      },
+      {
+        name: 'Credit card 2',
+        value: 23.03,
+      },
+    ],
   }),
-
-  props: {
-    cards: [Object, Array],
-  },
 
   created() {
     this.cardSelected = {
       card: this.cards[1],
       index: 1,
     };
+    this.selectedCard();
   },
 
   computed: {
     income() {
-      if (this.cardSelected) return this.cardSelected.card.value;
-      else return "2.300";
+      return this.cardSelected ? this.cardSelected.card.value : '2.30';
     },
 
     spending() {
-      if (this.cardSelected)
-        return (this.cardSelected.card.value * 0.4).toFixed(3);
-      else return "6.455";
+      return this.cardSelected
+        ? (this.cardSelected.card.value * 0.4).toFixed(3)
+        : '6.455';
     },
 
     userBalance() {
       return (this.income - this.spending).toFixed(3);
     },
+
+    user() {
+      return this.$store.getters['auth/getUser'];
+    },
   },
   methods: {
-    selectedCard(data, index) {
-      this.cardSelected = {
-        index: index,
-        card: data,
-      };
-      this.$emit("card-selected", data);
+    selectedCard({ card, index }) {
+      this.cardSelected = { index, card };
+      this.$emit('selected', card);
     },
   },
 };
 </script>
-
-<style lang="scss" src="./UserCard.scss"></style>

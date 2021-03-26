@@ -1,38 +1,28 @@
-@import '../../assets/styles/style.scss';
-// Chart Here
-.expense-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    .expense-content {
-        flex: 0 0 46%;
-        padding-left: 10px;
-        h2 {
-            @include text(1rem,500);
-            color:$gray-darken-3;
-            margin: 0;
-        }
-        p {
-            @include text(0.76rem);
-            color: $gray-white;
-            margin-top: 10px;
-        }
+@import '@/assets/styles/style.scss';
+
+.expense-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .expense-card__content {
+    margin: 0 1rem;
+    h2 {
+      @include text(1rem, 500);
+      color: $gray-darken-3;
     }
-    @include lt-lg{
-        width: 100%;
+    p {
+      @include text(0.76rem);
+      color: $gray-white;
     }
-    @include lt-md {
-        width: 100%;
-    }
+  }
 }
 
 .expense-chart {
-    color: $white;
-    padding:25px;
-    text-align: center;
-    background: $blue;
-    border-radius: 100%;
-    margin: 0;
+  color: $white;
+  padding: 25px;
+  text-align: center;
+  background: $blue;
+  border-radius: 100%;
+  margin: 0;
 }
-
-

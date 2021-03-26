@@ -4,10 +4,10 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <user-card :cards="userCards" @card-selected="cardSelected" />
+            <CardUserAccount @selected="cardSelected" />
           </div>
           <div class="col-12">
-            <card-new-product @NewProduct="storageNewUserCard" />
+            <CardNewProduct />
           </div>
         </div>
       </div>
@@ -16,64 +16,53 @@
     <div class="layout-section">
       <div class="container-fluid">
         <div class="row">
-          <!-- Search bar-->
-          <div class="col-sm-11 col-md-12 col-lg-6 mb-section">
-            <search-bar />
+          <div class=" col-sm-11 col-lg-6">
+            <CardManage />
           </div>
-          <!-- Card credit status -->
           <div class="col-md-12 col-sm-12 mb-section">
-            <card-debit
+            <CardBalance
               :name="card.name"
               :balance="card.balance"
-              :cashBack="card.cashBack"
+              :cash-back="card.cashBack"
               :rate="card.rate"
             />
           </div>
-          <!-- EXPENSE CARD START -->
           <div class="col-md-12 col-sm-12 mb-section">
             <div class="col-12 section-title">
               <h2>Biggest expense</h2>
             </div>
-            <s-card-group>
-              <card-expense
+            <SCardGroup>
+              <CardExpense
                 v-for="(content, index) in expenseCardContent"
                 :key="index"
                 :title="content.title"
                 :description="content.description"
               />
-            </s-card-group>
+            </SCardGroup>
           </div>
-          <!-- EXPENSE CARD END -->
-
-          <!-- Menu TABS START -->
           <div class="col-12">
-            <tabs />
+            <Tabs />
           </div>
-          <!-- Menu TABS end -->
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import DefaultLayout from '../layouts/default';
-import CardDebit from '@/components/CardDebit';
 import CardExpense from '@/components/CardExpense';
-import SearchBar from '@/components/SearchBar';
-import UserCard from '@/components/UserCard';
-import CardNewProduct from '@/components/CardNewProduct';
 import Tabs from '@/components/Tabs';
-
 import storageNewUser from '@/mixins/storageNewUser';
+
 export default {
   mixins: [storageNewUser],
+
   components: {
-    DefaultLayout,
-    CardDebit,
+    CardBalance: () => import('@/components/CardBalance/index.vue'),
+    CardNewProduct: () => import('@/components/CardNewProduct/index.vue'),
+    CardManage: () => import('@/components/CardManage/index.vue'),
+    CardUserAccount: () => import('@/components/CardUserAccount/index.vue'),
     CardExpense,
-    SearchBar,
-    UserCard,
-    CardNewProduct,
+    // SearchBar,
     Tabs,
   },
 
@@ -92,21 +81,23 @@ export default {
         description: 'Soon your dumbbells will hava now here to go.',
       },
     ],
+
     card: {
       balance: 100,
       cashBack: 20,
-      rate: -10,
+      rate: '-9.9',
     },
   }),
 
   methods: {
-    cardSelected(event) {
-      return (this.card = {
-        name: event.name,
-        balance: event.value,
-        cashBack: +(Math.random() * (event.value * 2 - 0) + 0).toFixed(0),
-        rate: (event.value / 2).toFixed(1),
-      });
+    cardSelected({ name, value }) {
+      console.log((value / 2).toFixed(1));
+      this.card = {
+        name,
+        balance: value,
+        cashBack: +(Math.random() * (value * 2 - 0) + 0).toFixed(0),
+        rate: (value / 2).toFixed(1),
+      };
     },
   },
 };

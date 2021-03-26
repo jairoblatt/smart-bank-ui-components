@@ -1,40 +1,47 @@
 @import '@/assets/styles/style.scss';
 
-.app-config__container {
+.settings__container {
   height: 100%;
   width: 100%;
   display: flex;
   padding: 1rem 2rem;
   flex-direction: column;
 
-  .app-config__action {
-    align-self: flex-end;
-    margin-bottom: 1rem;
-    border-radius: 100%;
-    height: 35px;
-    width: 35px;
+  .settings__header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    transition-duration: 200ms;
+    height: 40px;
 
-    &:hover {
-      background: rgba(128, 128, 128, 0.062);
+    .header-action {
+      border-radius: 50%;
+      height: 39px;
+      width: 39px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       transition-duration: 200ms;
+
+      &:hover {
+        background: rgba(128, 128, 128, 0.062);
+        transition-duration: 200ms;
+      }
     }
   }
 
-  .app-config__items {
+  .settings__items {
     display: flex;
     flex-wrap: wrap;
-    align-self: center;
-    .app-config__item {
+    width: 100%;
+    margin-top: 2rem;
+    .settings__item {
       background: rgba(235, 235, 235, 0.151);
       display: flex;
       flex-direction: column;
       padding: 1rem;
       border-radius: 10px;
       margin-left: 0.3rem;
+      width: 49%;
 
       span {
         padding-bottom: 1rem;

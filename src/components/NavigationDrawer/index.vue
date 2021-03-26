@@ -28,7 +28,7 @@
                 <i :class="item.icon"></i>
               </RouterLink>
             </li>
-            <li @click="$modal.show('app-config')">
+            <li @click="$modal.show('settings')">
               <i class="mdi mdi-cog"></i>
             </li>
           </ul>

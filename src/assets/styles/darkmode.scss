@@ -1,12 +1,16 @@
 @import '@/assets/styles/style.scss';
 
-$dark-1: #1f242c;
-$dark-2: #222831;
+$dark-1: #101025;
+$dark-2: #181832;
 $dark-3: #373e49;
 $dark-5: #cecece;
 $dark-6: #eeeeee;
 
 .dark-mode {
+  .loader__container {
+    background: $dark-1;
+  }
+
   #app {
     background: $dark-1;
     color: $dark-6;
@@ -21,16 +25,17 @@ $dark-6: #eeeeee;
       color: $dark-6;
     }
 
+    .s-text-field,
+    input {
+      background: $dark-2;
+      color: $dark-6;
+    }
+
     .layout-container {
       .s-card,
       .search-bar-container {
         background: $dark-2;
         box-shadow: none;
-        color: $dark-6;
-      }
-      .s-text-field,
-      input {
-        background: $dark-2;
         color: $dark-6;
       }
 
@@ -79,7 +84,7 @@ $dark-6: #eeeeee;
           background: transparent;
           &.client__avaliable--active,
           &:hover {
-            background: $dark-3;
+            background: $dark-1;
           }
         }
 
@@ -105,7 +110,7 @@ $dark-6: #eeeeee;
         color: $dark-5 !important;
       }
 
-      .app-config__container {
+      .settings__container {
         background: $dark-1;
       }
 
@@ -113,9 +118,31 @@ $dark-6: #eeeeee;
         color: $dark-6;
       }
 
+      .s-text-field-outlined {
+        border-color: $dark-3;
+      }
+
       .s-btn,
       .s-btn i {
         color: $dark-6;
+      }
+
+      .card-manager__container {
+        background: $primary;
+      }
+
+      .s-select__toggle {
+        color: $dark-6;
+        &:hover {
+          background: $dark-3;
+        }
+      }
+
+      .s-select__menu {
+        background: $dark-3;
+        span {
+          color: $dark-6;
+        }
       }
     }
   }

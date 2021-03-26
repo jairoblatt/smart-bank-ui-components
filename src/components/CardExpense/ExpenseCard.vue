@@ -1,41 +1,28 @@
 <template>
-  <s-card :loading="loading" width="400">
-    <s-card-body>
-      <div class="expense-container">
-        <s-avatar size="63" rounded>{{ title.charAt() }}</s-avatar>
-        <div class="expense-content">
+  <SCard>
+    <SCardBody>
+      <div class="expense-card">
+        <SAvatar size="63" rounded>{{ title.charAt() }}</SAvatar>
+        <div class="expense-card__content">
           <h2>{{ title }}</h2>
           <p>{{ description }}</p>
         </div>
-        <div class="expense-action">
-          <s-button text @click="loadingInit">
+        <div class="expense-card__action">
+          <SButton text>
             <i class="mdi mdi-arrow-right"></i>
-          </s-button>
+          </SButton>
         </div>
       </div>
-    </s-card-body>
-  </s-card>
+    </SCardBody>
+  </SCard>
 </template>
 <script>
-export default {
-  data: () => ({
-    loading: false,
-  }),
+import './ExpenseCard.scss';
 
+export default {
   props: {
     title: String,
     description: String,
   },
-
-  methods: {
-    loadingInit() {
-      this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-      }, 2000);
-    },
-  },
 };
 </script>
-
-<style lang="scss" src="./ExpenseCard.scss"></style>

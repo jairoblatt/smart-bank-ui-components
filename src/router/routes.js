@@ -23,7 +23,7 @@ export default [
   },
   {
     path: '/dashboard',
-    component: page('dashboard.vue'),
+    component: page('dashboard/index.vue'),
     name: 'Dashboard',
   },
   {

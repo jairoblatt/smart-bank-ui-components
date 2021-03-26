@@ -19,6 +19,10 @@ module.exports = {
     rate: 'Rate',
     pay: 'Pay',
     more: 'More',
+    income: 'Income',
+    spending: 'Spending',
+    openProduct: 'Open a new product',
+    cards: 'Debit cards, deposits',
   },
 
   settings: {

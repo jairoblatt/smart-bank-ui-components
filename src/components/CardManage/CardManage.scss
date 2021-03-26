@@ -1,0 +1,23 @@
+@import '@/assets/styles/style.scss';
+
+.card-manager {
+  background: $primary;
+  color: $white;
+  display: flex;
+  position: relative;
+  overflow: visible;
+  transition: background 250ms ease;
+  cursor: pointer;
+
+  .card-manager__content {
+    width: 70%;
+    padding: 1rem 1.2rem;
+  }
+
+  .card-manager__image {
+    position: absolute;
+    bottom: 0%;
+    right: -15%;
+    height: 180px;
+  }
+}
